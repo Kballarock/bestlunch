@@ -1,0 +1,227 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 0; /* Remove scrollbar space */
+    background: transparent; /* Optional: just make scrollbar invisible */
+}
+
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}
+
+.bg-profile {
+    background-image: url("../image/profile.jpeg");
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bg-user {
+    background-image: url("../image/userhome.jpeg");
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bg-admin {
+    background-image: url("../image/admin_image.jpeg");
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bg-registration {
+    background-image: url("../image/reg_logo.jpeg");
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bg-login {
+    background-image: url("../image/food_login.jpeg");
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bg {
+    /* The image used */
+    background-image: url("../image/welcome_Logo.jpeg");
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.logo-text {
+    margin-top: 70px;
+    position: absolute;
+    text-align: center;
+    color: aliceblue;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Welcome form buttons */
+.btn-orange {
+    color: #F3AD2E;
+    border: 2px solid #F3AD2E;
+
+}
+
+.btn-orange:hover {
+    color: aliceblue;
+    text-decoration: none
+}
+
+.btn-orange.focus, .btn:focus {
+    outline: 0;
+    box-shadow: 0 0 0 .2rem rgba(243, 173, 46, 0.25)
+}
+
+.btn-orange-2 {
+    color: #F3AD2E;
+    border: 2px solid #F3AD2E;
+
+}
+
+.btn-orange-2:hover {
+    color: #050505;
+    text-decoration: none
+}
+
+.btn-orange-2.focus, .btn:focus {
+    outline: 0;
+    box-shadow: 0 0 0 .2rem rgba(243, 173, 46, 0.25)
+}
+
+.btn-red {
+    color: #f34a27;
+    border: 2px solid #f34a27;
+
+}
+
+.btn-red:hover {
+    color: aliceblue;
+    text-decoration: none
+}
+
+.btn-red-2 {
+    color: #f34a27;
+    border: 2px solid #f34a27;
+
+}
+
+.btn-red-2:hover {
+    color: #050505;
+    text-decoration: none
+}
+
+.btn-red.focus, .btn:focus {
+    outline: 0;
+    box-shadow: 0 0 0 .2rem rgba(243, 74, 39, 0.25)
+}
+
+.form-control {
+    height: 60px;
+    margin: 5px 20px 20px 20px;
+}
+
+.modal-input {
+    margin-top: 10px;
+    width: 430px;
+    height: 40px;
+}
+
+.col-form-label {
+    text-align: start;
+    margin-left: 40px;
+    margin-bottom: -15px;
+}
+
+.modal-label {
+    margin-left: 25px;
+}
+
+.form-group {
+    margin-bottom: 2px;
+}
+
+.col-form-label-sm {
+    text-align: left;
+}
+
+input[type=search] {
+    height: 30px;
+    margin-bottom: -20px;
+}
+
+tr[data-userEnabled="false"] {
+    opacity: 0.3;
+}
+
+div.hidden {
+    display: none
+}
+
+.locale-color {
+    color: #f34a27;
+}
+
+.alert-exc {
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    width: 80%;
+    z-index: 1;
+}
+
+.alert-danger-exc {
+    margin-top: 50px;
+    text-align: center;
+    width: 800px;
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb
+}
+
+.container-filter {
+    width: 1140px;
+    padding-right: 15px;
+    padding-left: 15px;
+    height: 55px;
+    margin: -15px auto 12px;
+}
