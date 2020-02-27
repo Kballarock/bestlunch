@@ -25,7 +25,7 @@ INSERT INTO restaurant (name, description, address, added) VALUES
 ('Burger King', 'Быстрое питание', 'г. Минск. ул. Кирова, 10', '2019-12-16 01:00'),
 ('Renaissance', 'Итальянская кухня', 'г. Минск, ул. Сурганова, 5', '2019-12-16 02:00');
 
-INSERT INTO menu (name, price, date, restaurant_id) VALUES
+INSERT INTO menu (name, price, menu_date, restaurant_id) VALUES
        ('Гамбургер', 4.39, '2019-12-16', 100001),
        ('Кока Кола', 1.2, '2019-12-16', 100001),
        ('Хот дог', 2.0, '2019-12-16', 100001),
