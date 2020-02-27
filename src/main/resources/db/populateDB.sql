@@ -5,6 +5,7 @@
 DELETE FROM user_roles WHERE user_id;
 DELETE FROM users WHERE id;
 DELETE FROM menu WHERE restaurant_id;
+DELETE FROM votes WHERE id;
 DELETE FROM restaurant WHERE id;
 
 ALTER TABLE users AUTO_INCREMENT = 100000;
@@ -24,14 +25,14 @@ INSERT INTO restaurant (name, description, address, added) VALUES
 ('Burger King', 'Быстрое питание', 'г. Минск. ул. Кирова, 10', '2019-12-16 01:00'),
 ('Renaissance', 'Итальянская кухня', 'г. Минск, ул. Сурганова, 5', '2019-12-16 02:00');
 
-INSERT INTO menu (date, name, price, restaurant_id) VALUES
-       ('2019-12-16 01:00', 'Гамбургер', 4.39, 100001),
-       ('2019-12-16 01:00', 'Кока Кола', 1.2, 100001),
-       ('2019-12-16 01:00', 'Хот дог', 2.0, 100001),
-       ('2019-12-16 01:00', 'Картофель фри', 1.8, 100001),
-       ('2019-12-16 02:00', 'Паста', 15.60, 100000),
-       ('2019-12-16 02:00', 'Сибас', 20.10, 100000),
-       ('2019-12-16 02:00', 'Суп-пюре', 12.35, 100000);
+INSERT INTO menu (name, price, date, restaurant_id) VALUES
+       ('Гамбургер', 4.39, '2019-12-16', 100001),
+       ('Кока Кола', 1.2, '2019-12-16', 100001),
+       ('Хот дог', 2.0, '2019-12-16', 100001),
+       ('Картофель фри', 1.8, '2019-12-16',  100001),
+       ('Паста', 15.60, '2019-12-16',  100000),
+       ('Сибас', 20.10, '2019-12-16', 100000),
+       ('Суп-пюре', 12.35, '2019-12-16', 100000);
 
 INSERT INTO votes (id, user_id, restaurant_id, voting_date) VALUES
        (1000, 100000, 100000,'2019-12-16'),

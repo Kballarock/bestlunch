@@ -36,9 +36,9 @@ CREATE TABLE restaurant
 CREATE TABLE menu
 (
   id               INTEGER AUTO_INCREMENT PRIMARY KEY,
-  date             TIMESTAMP DEFAULT now() NOT NULL,
   name             VARCHAR(255)            NOT NULL,
   price            DOUBLE(5,2)             NOT NULL,
+  date             DATE DEFAULT (CURRENT_DATE + INTERVAL 1 YEAR) NOT NULL,
   restaurant_id    INTEGER                 NOT NULL,
   FOREIGN KEY (restaurant_id) REFERENCES restaurant (id) ON DELETE CASCADE
 )
