@@ -15,7 +15,8 @@ import java.time.LocalDate;
 public class Menu extends AbstractNamedEntity {
 
     @NotNull
-    @DecimalMax("9999.0") @DecimalMin("0.0")
+    @DecimalMin("0.0")
+    @DecimalMax("9999.0")
     @Column(name = "price", nullable = false)
     private Double price;
 

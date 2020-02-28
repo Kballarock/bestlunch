@@ -1,19 +1,24 @@
 package by.bestlunch.persistence.repository;
 
 import by.bestlunch.persistence.model.Menu;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
-import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.lang.Nullable;
 
 import java.time.LocalDate;
 import java.util.List;
 
-@Repository
-@Transactional(readOnly = true)
-public interface MenuRepository extends JpaRepository<Menu, Integer> {
+public interface MenuRepository {
 
-    @Query("SELECT m FROM Menu m WHERE m.restaurant.id =: restaurantId AND m.date =: date")
-    List<Menu> findAllByDate(@Param("restaurantId") Integer restaurantId, @Param("date") LocalDate date);
+    Menu save(Menu menuItem, int restaurantId);
+
+    boolean delete(int id, int restaurantId);
+
+    Menu get(int id, int userId);
+
+    List<Menu> getAll(int restaurantId);
+
+    List<Menu> getAllByDate(int restaurantId, @Nullable LocalDate date);
+
+    default Menu getAllWithRestaurant(int id, int restaurantId) {
+        throw new UnsupportedOperationException();
+    }
 }

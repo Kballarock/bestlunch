@@ -3,10 +3,14 @@ package by.bestlunch.service;
 import by.bestlunch.persistence.model.Menu;
 import by.bestlunch.persistence.repository.MenuRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
 
 import java.time.LocalDate;
 import java.util.List;
+
+import static by.bestlunch.validation.ValidationUtil.checkNotFoundWithId;
 
 @Service
 public class MenuService {
@@ -18,7 +22,33 @@ public class MenuService {
         this.repository = repository;
     }
 
-    public List<Menu> getAllbyDate(Integer restaurantId, LocalDate date) {
-        return repository.findAllByDate(restaurantId, date);
+    public Menu get(int id, int restaurantId) {
+        return checkNotFoundWithId(repository.get(id, restaurantId), id);
+    }
+
+    public void delete(int id, int restaurantId) {
+        checkNotFoundWithId(repository.delete(id, restaurantId), id);
+    }
+
+    public List<Menu> getAllByDate(int restaurantId, @Nullable LocalDate date) {
+        return repository.getAllByDate(restaurantId, date);
+    }
+
+    public List<Menu> getAll(int restaurantId) {
+        return repository.getAll(restaurantId);
+    }
+
+    public void update(Menu menu, int restaurantId) {
+        Assert.notNull(menu, "menu must not be null");
+        checkNotFoundWithId(repository.save(menu, restaurantId), menu.getId());
+    }
+
+    public Menu create(Menu menu, int restaurantId) {
+        Assert.notNull(menu, "meal must not be null");
+        return repository.save(menu, restaurantId);
+    }
+
+    public Menu getWithUser(int id, int restaurantId) {
+        return checkNotFoundWithId(repository.getAllWithRestaurant(id, restaurantId), id);
     }
 }
