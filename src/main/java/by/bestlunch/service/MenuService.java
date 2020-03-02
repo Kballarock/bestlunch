@@ -44,7 +44,7 @@ public class MenuService {
     }
 
     public Menu create(Menu menu, int restaurantId) {
-        Assert.notNull(menu, "meal must not be null");
+        Assert.notNull(menu, "menu must not be null");
         return repository.save(menu, restaurantId);
     }
 
