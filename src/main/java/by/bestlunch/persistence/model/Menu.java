@@ -5,8 +5,6 @@ import by.bestlunch.util.DateTimeUtil;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import javax.validation.constraints.DecimalMax;
-import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
@@ -15,8 +13,6 @@ import java.time.LocalDate;
 public class Menu extends AbstractNamedEntity {
 
     @NotNull
-    @DecimalMin("0.0")
-    @DecimalMax("9999.0")
     @Column(name = "price", nullable = false)
     private Double price;
 

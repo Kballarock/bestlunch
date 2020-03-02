@@ -20,13 +20,13 @@ import java.time.LocalTime;
 @Table(name = "restaurant")
 public class Restaurant extends AbstractNamedEntity {
 
-    @NotBlank(message = "{restaurantDto.NotBlank.Name}", groups = ErrorSequence.First.class)
-    @Size(min = 2, max = 150, message = "{restaurantDto.Size.Name}", groups = ErrorSequence.Second.class)
+    @NotBlank(message = "{restaurantDto.NotBlank.description}", groups = ErrorSequence.First.class)
+    @Size(min = 2, max = 150, message = "{restaurantDto.Size.description}", groups = ErrorSequence.Second.class)
     @Column(name = "description", nullable = false)
     private String description;
 
-    @NotBlank(message = "{restaurantDto.NotBlank.Address}", groups = ErrorSequence.First.class)
-    @Size(min = 2, max = 150, message = "{restaurantDto.Size.Description}", groups = ErrorSequence.Second.class)
+    @NotBlank(message = "{restaurantDto.NotBlank.address}", groups = ErrorSequence.First.class)
+    @Size(min = 2, max = 150, message = "{restaurantDto.Size.address}", groups = ErrorSequence.Second.class)
     @Column(name = "address", nullable = false)
     private String address;
 
