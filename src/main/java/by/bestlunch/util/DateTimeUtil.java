@@ -47,4 +47,8 @@ public class DateTimeUtil {
     public static LocalDate getEndInclusive(LocalDate localDate) {
         return localDate != null ? localDate : MAX_DATE.toLocalDate();
     }
+
+    public static LocalDate getCurrentDate(LocalDate localDate) {
+        return localDate != null ? localDate : LocalDate.now();
+    }
 }

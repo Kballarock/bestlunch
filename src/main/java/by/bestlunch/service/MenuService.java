@@ -2,9 +2,12 @@ package by.bestlunch.service;
 
 import by.bestlunch.persistence.model.Menu;
 import by.bestlunch.persistence.repository.MenuRepository;
+import by.bestlunch.util.MenuUtil;
+import by.bestlunch.web.dto.MenuDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import java.time.LocalDate;
@@ -34,21 +37,16 @@ public class MenuService {
         return repository.getAllByDate(restaurantId, date);
     }
 
-    public List<Menu> getAll(int restaurantId) {
-        return repository.getAll(restaurantId);
+    @Transactional
+    public void update(MenuDto itemDto, int restaurantId) {
+        Assert.notNull(itemDto, "menu must not be null");
+        Menu item = get(itemDto.id(), restaurantId);
+        repository.save(MenuUtil.updateFromDto(item, itemDto), restaurantId);
     }
 
-    public void update(Menu menu, int restaurantId) {
-        Assert.notNull(menu, "menu must not be null");
-        checkNotFoundWithId(repository.save(menu, restaurantId), menu.getId());
-    }
-
-    public Menu create(Menu menu, int restaurantId) {
-        Assert.notNull(menu, "menu must not be null");
-        return repository.save(menu, restaurantId);
-    }
-
-    public Menu getWithUser(int id, int restaurantId) {
-        return checkNotFoundWithId(repository.getAllWithRestaurant(id, restaurantId), id);
+    @Transactional
+    public Menu create(Menu item, int restaurantId) {
+        Assert.notNull(item, "menu must not be null");
+        return repository.save(item, restaurantId);
     }
 }

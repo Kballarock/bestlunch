@@ -18,8 +18,7 @@ import static by.bestlunch.util.RestaurantUtil.getAllWithCount;
 import static by.bestlunch.validation.ValidationUtil.assureIdConsistent;
 import static by.bestlunch.validation.ValidationUtil.checkNew;
 
-
-public class AbstractRestaurantController {
+public abstract class AbstractRestaurantController {
     private final Logger log = LoggerFactory.getLogger(getClass());
     private static final LocalDate LOCAL_DATE = LocalDate.now();
 
