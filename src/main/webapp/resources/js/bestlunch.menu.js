@@ -1,16 +1,16 @@
-var restaurantAjaxUrl = "ajax/admin/";
+var menuAjaxUrl = "/ajax/admin/{restaurantId}/menu";
 
 function updateFilteredTable() {
     $.ajax({
         type: "GET",
-        url: restaurantAjaxUrl + "filter",
+        url: menuAjaxUrl + "filter",
         data: $("#filter").serialize()
     }).done(updateTableByData);
 }
 
 function clearFilter() {
     $("#filter")[0].reset();
-    $.get(restaurantAjaxUrl, updateTableByData);
+    $.get(menuAjaxUrl, updateTableByData);
 }
 
 $.ajaxSetup({
@@ -27,44 +27,25 @@ $.ajaxSetup({
 
 $(function () {
     makeEditable({
-        ajaxUrl: restaurantAjaxUrl,
+        ajaxUrl: menuAjaxUrl,
         datatableOpts: {
             "columns": [
-                {
-                    "orderable": false,
-                    "orderData": false,
-                    "ordering": false,
-                    "defaultContent": "",
-                    "render": function (data, type, row) {
-                        if (type === "display") {
-                            return "<a onclick=''><span class='fa fa-book' style='color: #f37a24'></span></a>";
-                        }
-                        return data;
-                    }
-
-                },
                 {
                     "data": "name"
                 },
                 {
-                    "data": "description"
+                    "data": "price"
                 },
                 {
-                    "data": "address"
-                },
-                {
-                    "data": "added",
+                    "data": "date",
                     "render": function (data) {
                         var date = new Date(data);
                         var month = date.getMonth() + 1;
                         if (localeCode === 'ru') {
-                            return date.getDate() + "-" + (month.toString().length > 1 ? month : "0" + month) + "-" + date.getFullYear() + "&nbsp;" + (date.getHours() < 10 ? ("0" + date.getHours()) : date.getHours()) + ":" + (date.getMinutes() < 10 ? ("0" + date.getMinutes()) : date.getMinutes());
+                            return date.getDate() + "-" + (month.toString().length > 1 ? month : "0" + month) + "-" + date.getFullYear();
                         }
                         return data;
                     }
-                },
-                {
-                    "data": "amount"
                 },
                 {
                     "orderable": false,
@@ -86,7 +67,7 @@ $(function () {
         },
         updateTable: function () {
             if (dateVotingFrom.val() === "" && dateVotingTo.val() === "") {
-                $.get(restaurantAjaxUrl, updateTableByData);
+                $.get(menuAjaxUrl, updateTableByData);
             } else {
                 updateFilteredTable();
             }
@@ -108,15 +89,6 @@ $(function () {
             })
         }
     });
-
-    dateVotingTo.datetimepicker({
-        timepicker: false,
-        format: 'Y-m-d',
-        formatDate: 'Y-m-d',
-        onShow: function (ct) {
-            this.setOptions({
-                minDate: dateVotingFrom.val() ? dateVotingFrom.val() : false
-            })
-        }
-    });
 });
+
+

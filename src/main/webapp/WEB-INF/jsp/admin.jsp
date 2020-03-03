@@ -45,6 +45,7 @@
             <table class="table table-striped table-dark" id="datatable">
                 <thead>
                 <tr>
+                    <th><spring:message code="restaurant.menu"/></th>
                     <th><spring:message code="restaurant.name"/></th>
                     <th><spring:message code="restaurant.description"/></th>
                     <th><spring:message code="restaurant.address"/></th>
