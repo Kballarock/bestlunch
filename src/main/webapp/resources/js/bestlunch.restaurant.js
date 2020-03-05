@@ -37,11 +37,9 @@ $(function () {
                     "defaultContent": "",
                     "render": function (data, type, row) {
                         if (type === "display") {
-                            return "<a onclick=''><span class='fa fa-book' style='color: #f37a24'></span></a>";
+                            return "<a onclick='window.location.href = " + row.id + "'><span class='fa fa-book' style='color: #f37a24'></span></a>";
                         }
-                        return data;
                     }
-
                 },
                 {
                     "data": "name"
@@ -54,7 +52,7 @@ $(function () {
                 },
                 {
                     "data": "added",
-                    "render": function (data) {
+                    "render": function (data, row) {
                         var date = new Date(data);
                         var month = date.getMonth() + 1;
                         if (localeCode === 'ru') {

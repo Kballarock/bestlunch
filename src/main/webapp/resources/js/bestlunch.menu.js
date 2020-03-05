@@ -1,15 +1,15 @@
-var menuAjaxUrl = "/ajax/admin/{restaurantId}/menu";
+var menuAjaxUrl = "ajax/menu/{{ $id }}/";
 
-function updateFilteredTable() {
+function updateFilteredTable(id) {
     $.ajax({
         type: "GET",
-        url: menuAjaxUrl + "filter",
-        data: $("#filter").serialize()
+        url: menuAjaxUrl + id +  "/filter",
+        data: $("#menuFilter").serialize()
     }).done(updateTableByData);
 }
 
 function clearFilter() {
-    $("#filter")[0].reset();
+    $("#menuFilter")[0].reset();
     $.get(menuAjaxUrl, updateTableByData);
 }
 
@@ -65,27 +65,20 @@ $(function () {
                 ]
             ]
         },
-        updateTable: function () {
-            if (dateVotingFrom.val() === "" && dateVotingTo.val() === "") {
-                $.get(menuAjaxUrl, updateTableByData);
-            } else {
-                updateFilteredTable();
-            }
-        }
+        updateTable: updateFilteredTable
     });
 
     $.datetimepicker.setLocale(localeCode);
 
-    var dateVotingFrom = $('#dateVotingFrom');
-    var dateVotingTo = $('#dateVotingTo');
-
-    dateVotingFrom.datetimepicker({
+    var date = $('#date');
+    date.datetimepicker({
         timepicker: false,
         format: 'Y-m-d',
         formatDate: 'Y-m-d',
+        defaultDate: new Date(),
         onShow: function (ct) {
             this.setOptions({
-                maxDate: dateVotingTo.val() ? dateVotingTo.val() : false
+                maxDate: "+0D"
             })
         }
     });

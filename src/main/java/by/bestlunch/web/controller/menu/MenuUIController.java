@@ -15,7 +15,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @RestController
-@RequestMapping("/ajax/admin/{restaurantId}/menu")
+@RequestMapping("/ajax/menu/{restaurantId}")
 public class MenuUIController extends AbstractMenuController {
 
     @Override

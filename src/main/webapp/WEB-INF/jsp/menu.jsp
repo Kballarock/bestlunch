@@ -13,7 +13,7 @@
 
     <div class="p-5">
         <div class="container-filter bg-dark" style="color: white">
-            <form id="filter" class="p-2">
+            <form id="menuFilter" class="p-2">
                 <%--@elvariable id="name" type="by.bestlunch.persistence.model.Restaurant"--%>
                 <label for="date"><spring:message code="common.menuDate"/>${name}</label>
                 <input id="date" class="form-control-sm" style="height: 38px; width: 100px" name="date"
