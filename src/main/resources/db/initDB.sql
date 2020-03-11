@@ -42,7 +42,7 @@ CREATE TABLE menu
 (
   id            INTEGER AUTO_INCREMENT PRIMARY KEY,
   name          VARCHAR(255)                                  NOT NULL,
-  price         DOUBLE(5, 2)                                  NOT NULL,
+  price         DECIMAL(6, 2)                                 NOT NULL,
   menu_date     DATE DEFAULT (CURRENT_DATE + INTERVAL 1 YEAR) NOT NULL,
   restaurant_id INTEGER                                       NOT NULL,
   FOREIGN KEY (restaurant_id) REFERENCES restaurant (id) ON DELETE CASCADE
