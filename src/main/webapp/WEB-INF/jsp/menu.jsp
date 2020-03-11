@@ -10,13 +10,11 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bestlunch.menu.js"></script>
 
 <div class="bg-menu">
-
     <div class="p-5">
         <div class="container-filter bg-dark" style="color: white">
             <form id="menuFilter" class="p-2">
-                <%--@elvariable id="name" type="by.bestlunch.persistence.model.Restaurant"--%>
-                <label for="date"><spring:message code="common.menuDate"/>${name}</label>
-                <input id="date" class="form-control-sm" style="height: 38px; width: 100px" name="date"
+                <label for="menuDate"><spring:message code="common.menuDate"/></label>
+                <input id="menuDate" class="form-control-sm" style="height: 38px; width: 100px" name="date"
                        autocomplete="off">
 
                 <button class="btn btn-orange" type="button"
@@ -52,8 +50,49 @@
                 </thead>
             </table>
         </div>
-</div>
+    </div>
 
+    <div class="modal fade" tabindex="-1" id="editRow">
+        <div class="modal-dialog" style="color: white">
+            <div class="modal-content bg-dark">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="modalTitle"></h4>
+                    <button type="button" class="close" data-dismiss="modal" style="color: white" onclick="closeNoty()">
+                        &times;
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="detailsForm">
+                        <input type="hidden" id="id" name="id">
+
+                        <div class="form-group">
+                            <label for="name" class="col-form-label modal-label"><spring:message
+                                    code="menuItem.name"/></label>
+                            <input type="text" class="form-control modal-input" id="name" name="name">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="price" class="col-form-label modal-label"><spring:message
+                                    code="menuItem.price"/></label>
+                            <input type="number" min="0" max="10000" step="0.01" class="form-control modal-input"
+                                   id="price" name="price">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-red" data-dismiss="modal" onclick="closeNoty()">
+                        <span class="fa fa-close"></span>
+                        <spring:message code="common.cancel"/>
+                    </button>
+                    <button type="button" class="btn btn-orange" onclick="save()">
+                        <span class="fa fa-check"></span>
+                        <spring:message code="common.save"/>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <jsp:include page="fragments/footer.jsp"/>
 </body>
 <jsp:include page="fragments/i18n.jsp">
