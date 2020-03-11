@@ -43,6 +43,8 @@ public class DefaultAuthenticationFailureHandler extends SimpleUrlAuthentication
 
         if (exception.getMessage().equalsIgnoreCase("User is disabled")) {
             errorMessage = messages.getMessage("user.auth.message.disabled", null, locale);
+        } else if (exception.getMessage().equalsIgnoreCase("User account has expired")) {
+            errorMessage = messages.getMessage("user.auth.message.expired", null, locale);
         }
         request.getSession().setAttribute(WebAttributes.AUTHENTICATION_EXCEPTION, errorMessage);
     }

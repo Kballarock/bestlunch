@@ -80,10 +80,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .logout()
                 .logoutSuccessHandler(logoutSuccessHandler)
-                .invalidateHttpSession(false)
+                .invalidateHttpSession(true)
                 .deleteCookies("JSESSIONID")
                 .permitAll()
                 .and()
-                .exceptionHandling().accessDeniedHandler(accessDeniedHandler);
+                .exceptionHandling().accessDeniedHandler(accessDeniedHandler)
+                .and()
+                .sessionManagement().maximumSessions(1).expiredUrl("/login?expired=true");
     }
 }
