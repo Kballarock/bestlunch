@@ -2,7 +2,6 @@ package by.bestlunch.web.controller.menu;
 
 import by.bestlunch.persistence.model.Menu;
 import by.bestlunch.validation.view.ErrorSequence;
-import by.bestlunch.web.dto.MenuDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.lang.Nullable;
@@ -15,11 +14,11 @@ import java.time.LocalDate;
 import java.util.List;
 
 @RestController
-@RequestMapping("/ajax/menu/{restaurantId}")
+@RequestMapping("/ajax/{restaurantId}/menu")
 public class MenuUIController extends AbstractMenuController {
 
     @Override
-    @GetMapping(value = "/filter", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     List<Menu> getAllByDate(@PathVariable("restaurantId") int restaurantId, @RequestParam @Nullable LocalDate date) {
         return super.getAllByDate(restaurantId, getCurrentDate(date));
     }
@@ -38,11 +37,11 @@ public class MenuUIController extends AbstractMenuController {
     }
 
     @PostMapping
-    public void createOrUpdate(@Validated(ErrorSequence.class) MenuDto itemDto, @PathVariable("restaurantId") int restaurantId) {
-        if (itemDto.isNew()) {
-            super.create(itemDto, restaurantId);
+    public void createOrUpdate(@Validated(ErrorSequence.class) Menu item, @PathVariable("restaurantId") int restaurantId) {
+        if (item.isNew()) {
+            super.create(item, restaurantId);
         } else {
-            super.update(itemDto, restaurantId);
+            super.update(item, item.id(), restaurantId);
         }
     }
 }

@@ -2,8 +2,6 @@ package by.bestlunch.web.controller.menu;
 
 import by.bestlunch.persistence.model.Menu;
 import by.bestlunch.service.MenuService;
-import by.bestlunch.util.MenuUtil;
-import by.bestlunch.web.dto.MenuDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,20 +33,15 @@ public abstract class AbstractMenuController {
         return menuService.getAllByDate(restaurantId, date);
     }
 
-    public Menu create(MenuDto itemDto, int restaurantId) {
-        log.info("create from DTO {}", itemDto);
-        return create(MenuUtil.createNewFromDto(itemDto), restaurantId);
-    }
-
     public Menu create(Menu item, int restaurantId) {
-        log.info("create menu item {} for restaurant {}", item, restaurantId);
         checkNew(item);
+        log.info("create menu item {} for restaurant {}", item, restaurantId);
         return menuService.create(item, restaurantId);
     }
 
-    public void update(MenuDto itemDto, int restaurantId) {
-        log.info("update menu item {} with restaurantId={}", itemDto, restaurantId);
-        assureIdConsistent(itemDto, restaurantId);
-        menuService.update(itemDto, restaurantId);
+    public void update(Menu item, int id, int restaurantId) {
+        assureIdConsistent(item, id);
+        log.info("update menu item {} with restaurantId={}", item, restaurantId);
+        menuService.update(item, restaurantId);
     }
 }

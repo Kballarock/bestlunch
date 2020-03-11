@@ -2,8 +2,6 @@ package by.bestlunch.service;
 
 import by.bestlunch.persistence.model.Menu;
 import by.bestlunch.persistence.repository.MenuRepository;
-import by.bestlunch.util.MenuUtil;
-import by.bestlunch.web.dto.MenuDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
@@ -38,10 +36,9 @@ public class MenuService {
     }
 
     @Transactional
-    public void update(MenuDto itemDto, int restaurantId) {
-        Assert.notNull(itemDto, "menu must not be null");
-        Menu item = get(itemDto.id(), restaurantId);
-        repository.save(MenuUtil.updateFromDto(item, itemDto), restaurantId);
+    public void update(Menu item, int restaurantId) {
+        Assert.notNull(item, "menu must not be null");
+        checkNotFoundWithId(repository.save(item, restaurantId), item.getId());
     }
 
     @Transactional

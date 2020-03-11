@@ -1,9 +1,11 @@
-var menuAjaxUrl = "ajax/menu/{{ $id }}/";
+var url = window.location.pathname.split("/");
+var restaurantId = url[2];
+var menuAjaxUrl = "ajax/" + restaurantId + "/menu/";
 
-function updateFilteredTable(id) {
+function updateFilteredTable() {
     $.ajax({
         type: "GET",
-        url: menuAjaxUrl + id +  "/filter",
+        url: menuAjaxUrl,
         data: $("#menuFilter").serialize()
     }).done(updateTableByData);
 }
@@ -12,18 +14,6 @@ function clearFilter() {
     $("#menuFilter")[0].reset();
     $.get(menuAjaxUrl, updateTableByData);
 }
-
-$.ajaxSetup({
-    converters: {
-        "text json": function (stringData) {
-            var json = JSON.parse(stringData);
-            $(json).each(function () {
-                this.added = this.added.replace('T', ' ').substr(0, 16);
-            });
-            return json;
-        }
-    }
-});
 
 $(function () {
     makeEditable({
@@ -70,8 +60,8 @@ $(function () {
 
     $.datetimepicker.setLocale(localeCode);
 
-    var date = $('#date');
-    date.datetimepicker({
+    var menuDate = $('#menuDate');
+    menuDate.datetimepicker({
         timepicker: false,
         format: 'Y-m-d',
         formatDate: 'Y-m-d',
