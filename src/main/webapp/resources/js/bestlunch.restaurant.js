@@ -37,7 +37,7 @@ $(function () {
                     "defaultContent": "",
                     "render": function (data, type, row) {
                         if (type === "display") {
-                            return "<a href='" + row.id + "/menu'><span class='fa fa-book' style='color: #f37a24'></span></a>";
+                            return "<a href='"+ row.name+"/" + row.id + "/menu'><span class='fa fa-book' style='color: #f37a24'></span></a>";
                         }
                     }
                 },

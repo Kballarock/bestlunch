@@ -1,5 +1,6 @@
 var url = window.location.pathname.split("/");
-var restaurantId = url[2];
+var restaurantId = url[3];
+var restaurantName = url[2].replace("%20", " ");
 var menuAjaxUrl = "ajax/" + restaurantId + "/menu/";
 
 function updateFilteredTable() {
@@ -73,5 +74,3 @@ $(function () {
         }
     });
 });
-
-

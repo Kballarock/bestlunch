@@ -37,7 +37,7 @@
         </div>
 
         <div class="container bg-dark" style="color: white">
-            <h3 class="text-center p-3" style="color: white;"><spring:message code="menu.title"/></h3>
+            <h3 id="menuTitle" class="text-center p-3" style="color: white;"></h3>
             <table class="table table-striped table-dark" id="datatable">
                 <thead>
                 <tr>
@@ -94,6 +94,10 @@
     </div>
 </div>
 <jsp:include page="fragments/footer.jsp"/>
+<script>
+    document.getElementById("menuTitle").innerHTML =
+        '<spring:message code="menu.title"/>&nbsp;' + restaurantName;
+</script>
 </body>
 <jsp:include page="fragments/i18n.jsp">
     <jsp:param name="page" value="restaurant"/>
