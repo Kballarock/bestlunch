@@ -1,9 +1,9 @@
 var context, form;
 
 function makeEditable(ctx) {
+    $.fn.dataTable.ext.classes.sLengthSelect = 'search-height';
     context = ctx;
     context.datatableApi = $("#datatable").DataTable(
-        // https://api.jquery.com/jquery.extend/#jQuery-extend-deep-target-object1-objectN
         $.extend(true, ctx.datatableOpts,
             {
                 "ajax": {
@@ -33,7 +33,6 @@ function makeEditable(ctx) {
         failNoty(jqXHR);
     });
 
-    // solve problem with cache in IE: https://stackoverflow.com/a/4303862/548473
     $.ajaxSetup({cache: false});
 
     var token = $("meta[name='_csrf']").attr("content");
