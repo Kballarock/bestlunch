@@ -1,7 +1,8 @@
 var context, form;
 
 function makeEditable(ctx) {
-    $.fn.dataTable.ext.classes.sLengthSelect = 'search-height';
+    $.fn.dataTable.ext.classes.sLengthSelect = 'select-height';
+    $.fn.DataTable.ext.pager.numbers_length = 7;
     context = ctx;
     context.datatableApi = $("#datatable").DataTable(
         $.extend(true, ctx.datatableOpts,
@@ -11,6 +12,7 @@ function makeEditable(ctx) {
                     "dataSrc": ""
                 },
                 "paging": true,
+                "pagingType": "simple_numbers",
                 pageLength: 5,
                 "lengthMenu": [[5, 10], [5, 10]],
                 "language": {
