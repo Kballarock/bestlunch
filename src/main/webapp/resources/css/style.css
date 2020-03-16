@@ -16,7 +16,7 @@ body, html {
 }
 
 .bg-profile {
-    background-image: url("../image/profile.jpeg");
+    background-image: url("../image/profile.jpg");
     /* Full height */
     height: 100%;
 
@@ -40,7 +40,7 @@ body, html {
 }
 
 .bg-user {
-    background-image: url("../image/userhome.jpeg");
+    background-image: url("../image/userhome.jpg");
     /* Full height */
     height: 100%;
 
@@ -64,7 +64,7 @@ body, html {
 }
 
 .bg-registration {
-    background-image: url("../image/reg_logo.jpeg");
+    background-image: url("../image/reg_logo.jpg");
     /* Full height */
     height: 100%;
 
