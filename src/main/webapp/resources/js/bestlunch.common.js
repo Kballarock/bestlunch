@@ -124,12 +124,22 @@ function failNoty(jqXHR) {
 
 function renderEditBtn(data, type, row) {
     if (type === "display") {
-        return "<a onclick='updateRow(" + row.id + ");'><span class='fa fa-pencil' style='color: #F3AD2E'></span></a>";
+        return "<a title='" + updateBtnTitle() + "' onclick='updateRow(" + row.id + ");'" +
+            "<span  class='fa fa-pencil' style='color: #F3AD2E'></span></a>";
     }
 }
 
 function renderDeleteBtn(data, type, row) {
     if (type === "display") {
-        return "<a onclick='deleteRow(" + row.id + ");'><span class='fa fa-remove' style='color: #f34a27'></span></a>";
+        return "<a title='" + deleteBtnTitle() + "' onclick='deleteRow(" + row.id + ");'>" +
+            "<span id='deleteBtn' onmouseover='deleteBtnTitle(" + row.id + ")' class='fa fa-remove' style='color: #f34a27'></span></a>";
     }
+}
+
+function updateBtnTitle() {
+    return updateMsg;
+}
+
+function deleteBtnTitle() {
+    return daleteMsg;
 }
