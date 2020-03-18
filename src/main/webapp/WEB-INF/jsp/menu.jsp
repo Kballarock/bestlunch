@@ -31,7 +31,7 @@
                 <button class="btn btn-orange pull-right" type="button" style="height: 38px;"
                         onclick="add()">
                     <span class="fa fa-plus"></span>
-                    <spring:message code="restaurant.add"/>
+                    <spring:message code="menu.add"/>
                 </button>
             </form>
         </div>
@@ -100,6 +100,6 @@
 </script>
 </body>
 <jsp:include page="fragments/i18n.jsp">
-    <jsp:param name="page" value="restaurant"/>
+    <jsp:param name="page" value="menu"/>
 </jsp:include>
 </html>
