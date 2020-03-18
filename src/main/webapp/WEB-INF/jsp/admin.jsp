@@ -109,8 +109,6 @@
     <jsp:param name="page" value="restaurant"/>
 </jsp:include>
 <script>
-    var updateMsg = '<spring:message code="common.edit" />';
-    var daleteMsg = '<spring:message code="common.delete" />';
     var menuMsg = '<spring:message code="common.menu" />';
 </script>
 </html>

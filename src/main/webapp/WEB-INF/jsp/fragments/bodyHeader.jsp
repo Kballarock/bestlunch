@@ -88,4 +88,6 @@
 
 <script type="text/javascript">
     var localeCode = "${pageContext.response.locale}";
+    var updateMsg = '<spring:message code="common.edit" />';
+    var daleteMsg = '<spring:message code="common.delete" />';
 </script>
