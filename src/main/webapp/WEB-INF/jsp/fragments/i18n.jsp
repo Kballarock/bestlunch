@@ -10,7 +10,8 @@
 
     <c:forEach var='key' items='<%=new String[]{"common.deleted", "common.saved", "common.enabled", "common.disabled",
                                            "common.search", "common.confirm", "common.info", "common.dataNotFound",
-                                           "common.dataIsNull", "common.menuLength", "common.nextPage", "common.previousPage"}%>'>
+                                           "common.dataIsNull", "common.menuLength", "common.nextPage", "common.previousPage",
+                                           "common.vote.enabled", "common.vote.disabled"}%>'>
     i18n['${key}'] = '<spring:message code="${key}"/>';
     </c:forEach>
 </script>

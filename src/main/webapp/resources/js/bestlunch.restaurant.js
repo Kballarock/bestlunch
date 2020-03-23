@@ -35,7 +35,7 @@ function voteCreateOrUpdate(chkbox, id) {
     }).done(function () {
         if (vote) {
             $.get(restaurantAjaxUrl, updateTableByData);
-            successNoty(vote ? "common.enabled" : "common.disabled");
+            successNoty(vote ? "common.vote.enabled" : "common.vote.disabled");
         } else {
             voteDelete(chkbox, id);
         }
@@ -53,7 +53,7 @@ function voteDelete(chkbox, id) {
         data: "vote=" + vote
     }).done(function () {
         $.get(restaurantAjaxUrl, updateTableByData);
-        successNoty(vote ? "common.enabled" : "common.disabled");
+        successNoty(vote ? "common.vote.enabled" : "common.vote.disabled");
     }).fail(function () {
         $(chkbox).prop("checked", !vote);
     });
@@ -64,6 +64,9 @@ $(function () {
     makeEditable({
         ajaxUrl: restaurantAjaxUrl,
         datatableOpts: {
+            "columnDefs": [
+                {"className": "dt-center", "targets": [5]}
+            ],
             "columns": [
                 {
                     "orderable": false,
@@ -165,7 +168,7 @@ function dateLocale(data, row) {
 
 function voteForRestaurant(data, type, row) {
     if (type === "display") {
-        return "<div title='"+ voteBtnTitle() +"' class='vote-checkbox'>" +
+        return "<div title='"+ voteBtnTitle() +"' class='vote-checkbox' style='text-align: center'>" +
             "<input id='" + row.id + "' type='checkbox' onclick='voteCreateOrUpdate($(this), " + row.id + ");' " + (data ? "checked" : "") + "/>" +
             "<label for='" + row.id + "'></label>" +
             "</div>";

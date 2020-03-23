@@ -266,3 +266,5 @@ div.hidden {
 .vote-checkbox input[type="checkbox"]:checked ~ label:before {
     content: '\f164';
 }
+
+th.dt-center, td.dt-center { text-align: center; }
