@@ -72,8 +72,8 @@ public abstract class AbstractRestaurantController {
 
     public void createOrUpdateVote(int id) {
         int userId = SecurityUtil.authUserId();
-        log.info("update vote for restaurant id {}", id);
-        voteService.update(userId, id);
+        log.info("createOrUpdateVote vote for restaurant id {}", id);
+        voteService.createOrUpdate(userId, id);
     }
 
     public void deleteVote(int id) {

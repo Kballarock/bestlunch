@@ -37,7 +37,7 @@ public class VoteService {
     }
 
     @Transactional
-    public void update(int userId, int restaurantId) {
+    public void createOrUpdate(int userId, int restaurantId) {
         Vote newVote = new Vote(userRepository.get(userId),
                 restaurantRepository.get(restaurantId),
                 LocalDate.now());

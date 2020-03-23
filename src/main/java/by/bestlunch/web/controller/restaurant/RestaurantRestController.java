@@ -65,4 +65,18 @@ public class RestaurantRestController extends AbstractRestaurantController {
 
         return ResponseEntity.created(uriOfNewResource).body(created);
     }
+
+    @Override
+    @PostMapping(value = "/{id}/vote", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(value = HttpStatus.NO_CONTENT)
+    public void createOrUpdateVote(@PathVariable int id) {
+        super.createOrUpdateVote(id);
+    }
+
+    @Override
+    @DeleteMapping("{id}/vote")
+    @ResponseStatus(value = HttpStatus.NO_CONTENT)
+    public void deleteVote(@PathVariable int id) {
+        super.deleteVote(id);
+    }
 }
