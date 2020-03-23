@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 import static by.bestlunch.util.DateTimeUtil.*;
 
@@ -21,7 +22,7 @@ public class DataJpaVoteRepository implements VoteRepository {
     }
 
     @Override
-    public Vote vote(Vote vote) {
+    public Vote save(Vote vote) {
         return crudVoteRepository.save(vote);
     }
 
@@ -33,5 +34,14 @@ public class DataJpaVoteRepository implements VoteRepository {
     @Override
     public List<Vote> getBetweenInclusive(LocalDate startDate, LocalDate endDate) {
         return crudVoteRepository.getAllVotesBetween(getStartInclusive(startDate), getEndInclusive(endDate));
+    }
+
+    public Optional<Vote> getUserVote(int userId, LocalDate date) {
+        return crudVoteRepository.getVoteByUserIdAndVotingDate(userId, date);
+    }
+
+    @Override
+    public boolean delete(int id, int restaurantId, int userId) {
+        return crudVoteRepository.delete(id, restaurantId, userId) != 0;
     }
 }

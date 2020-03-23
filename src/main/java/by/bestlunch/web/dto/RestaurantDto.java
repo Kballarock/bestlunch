@@ -15,21 +15,13 @@ public class RestaurantDto extends BaseDto {
     public RestaurantDto() {
     }
 
-    public RestaurantDto(Integer id, String name, String description, String address, LocalDateTime added, Integer amount) {
+    public RestaurantDto(Integer id, String name, String description, String address, LocalDateTime added, Integer amount, Boolean vote) {
         super(id);
         this.name = name;
         this.description = description;
         this.address = address;
+        this.amount = amount;
         this.added = added;
-        this.amount = amount;
-    }
-
-    public RestaurantDto(Integer id, String name, String description, String address, Integer amount, Boolean vote) {
-        super(id);
-        this.name = name;
-        this.description = description;
-        this.address = address;
-        this.amount = amount;
         this.vote = vote;
     }
 

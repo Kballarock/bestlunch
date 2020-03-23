@@ -13,7 +13,6 @@ function makeEditable(ctx) {
                 },
                 "paging": true,
                 "pagingType": "simple_numbers",
-                pageLength: 5,
                 "lengthMenu": [[5, 10], [5, 10]],
                 "language": {
                     "search": i18n["common.search"],

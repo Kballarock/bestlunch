@@ -50,4 +50,17 @@ public class RestaurantUIController extends AbstractRestaurantController {
             super.update(restaurant, restaurant.id());
         }
     }
+
+    @Override
+    @PostMapping("/{id}/vote")
+    public void createOrUpdateVote(@PathVariable int id) {
+        super.createOrUpdateVote(id);
+    }
+
+    @Override
+    @DeleteMapping("{id}/vote")
+    @ResponseStatus(value = HttpStatus.NO_CONTENT)
+    public void deleteVote(@PathVariable int id) {
+        super.deleteVote(id);
+    }
 }

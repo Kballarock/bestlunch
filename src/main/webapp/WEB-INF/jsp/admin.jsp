@@ -9,7 +9,6 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bestlunch.common.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bestlunch.restaurant.js"></script>
 <div class="bg-admin">
-
     <div class="p-5">
         <div class="container-filter bg-dark" style="color: white">
             <form id="filter" class="p-2">
@@ -51,6 +50,7 @@
                     <th><spring:message code="restaurant.address"/></th>
                     <th><spring:message code="restaurant.added"/></th>
                     <th><spring:message code="restaurant.votes"/></th>
+                    <th></th>
                     <th></th>
                     <th></th>
                 </tr>
@@ -110,5 +110,6 @@
 </jsp:include>
 <script>
     var menuMsg = '<spring:message code="common.menu" />';
+    var voteMsg = '<spring:message code="common.vote" />';
 </script>
 </html>

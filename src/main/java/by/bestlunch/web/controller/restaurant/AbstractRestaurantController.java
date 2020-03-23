@@ -5,6 +5,7 @@ import by.bestlunch.persistence.model.Vote;
 import by.bestlunch.service.RestaurantService;
 import by.bestlunch.service.VoteService;
 import by.bestlunch.util.RestaurantUtil;
+import by.bestlunch.util.SecurityUtil;
 import by.bestlunch.web.dto.RestaurantDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -67,5 +68,17 @@ public abstract class AbstractRestaurantController {
         log.info("update {} with id={}", restaurant, id);
         assureIdConsistent(restaurant, id);
         restaurantService.update(restaurant);
+    }
+
+    public void createOrUpdateVote(int id) {
+        int userId = SecurityUtil.authUserId();
+        log.info("update vote for restaurant id {}", id);
+        voteService.update(userId, id);
+    }
+
+    public void deleteVote(int id) {
+        int userId = SecurityUtil.authUserId();
+        log.info("delete vote for restaurant id {}", id);
+        voteService.delete(id, userId);
     }
 }

@@ -36,9 +36,11 @@ public class RestaurantUtil {
         Vote vote4 = new Vote(1003, USER, burgerKing, of(2019, Month.DECEMBER, 17));
         Vote vote5 = new Vote(1004, ADMIN, renaissance, of(2019, Month.DECEMBER, 18));
         Vote vote6 = new Vote(1005, USER, renaissance, of(2019, Month.DECEMBER, 18));
-        Vote vote7 = new Vote(1006, ADMIN, renaissance, of(2020, Month.FEBRUARY, 21));
-        Vote vote8 = new Vote(1007, USER, renaissance, of(2020, Month.FEBRUARY, 21));
-        List<Vote> votes = List.of(vote1, vote2, vote3, vote4, vote5, vote6, vote7, vote8);
+
+        List<Vote> votes = List.of(vote1, vote2, vote3, vote4, vote5, vote6);
+
+        System.out.println("Проверяем проголосовал ли пользователь за день");
+        System.out.println(getVoteForAuthUserPerDate(votes, 100000, burgerKing, of(2019, Month.DECEMBER, 18)));
 
         System.out.println(LocalDate.now());
 
@@ -88,16 +90,17 @@ public class RestaurantUtil {
                 .collect(Collectors.groupingBy(Vote::getRestaurant, Collectors.counting()));
 
         return restaurants.stream()
-                .map(restaurant -> getRestaurantDto(restaurant, map.get(restaurant))).collect(Collectors.toList());
+                .map(restaurant -> getRestaurantDto(restaurant, map.get(restaurant), getVoteForAuthUserPerDate(votes, SecurityUtil.authUserId(), restaurant, LocalDate.now()))).collect(Collectors.toList());
     }
 
-    private static RestaurantDto getRestaurantDto(Restaurant restaurant, Long amount) {
+    private static RestaurantDto getRestaurantDto(Restaurant restaurant, Long amount, Boolean vote) {
         return new RestaurantDto(restaurant.getId(),
                 restaurant.getName(),
                 restaurant.getAddress(),
                 restaurant.getDescription(),
                 restaurant.getAdded(),
-                Math.toIntExact(Objects.requireNonNullElse(amount, 0L)));
+                Math.toIntExact(Objects.requireNonNullElse(amount, 0L)),
+                vote);
     }
     //-----------------------------------------------------------------------------------------------------------------
 
@@ -106,14 +109,9 @@ public class RestaurantUtil {
         return votes.stream().filter(date -> date.getVotingDate().isEqual(dateVoting)).filter(vote -> vote.getUser().getId().equals(user.getId())).collect(Collectors.toList());
     }
 
-  /*  public static Restaurant createNewRestaurantFromDto(RestaurantDto restaurantDto) {
-        return new Restaurant(null, restaurantDto.getName(), restaurantDto.getDescription(), restaurantDto.getAddress());
-    }*/
-
-    public static Restaurant updateRestaurantFromDto(Restaurant restaurant, RestaurantDto restaurantDto) {
-        restaurant.setName(restaurantDto.getName());
-        restaurant.setDescription(restaurantDto.getDescription());
-        restaurant.setAddress(restaurantDto.getAddress());
-        return restaurant;
+    public static boolean getVoteForAuthUserPerDate(Collection<Vote> votes, int userId, Restaurant restaurant, LocalDate localDate) {
+        return votes.stream().anyMatch(vote -> vote.getVotingDate().isEqual(localDate) && vote.getUser().getId() == userId && vote.getRestaurant().getId().equals(restaurant.id()));
     }
+
+
 }
