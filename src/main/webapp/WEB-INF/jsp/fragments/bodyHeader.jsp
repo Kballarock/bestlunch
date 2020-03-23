@@ -40,6 +40,8 @@
         <sec:authorize access="isAuthenticated()">
             <form:form id="logoutForm" class="form-inline my-2" action="logout" method="post">
                 <sec:authorize access="hasRole('ROLE_ADMIN')">
+                    <a class="btn btn-orange mr-2" href="admin"><span class="fa fa-cogs"></span>
+                        <spring:message code="app.admin.home"/></a>
                     <a class="btn btn-orange mr-2" href="restaurant"><span class="fa fa-bookmark"></span>
                         <spring:message code="app.restaurant"/></a>
                     <a class="btn btn-orange mr-2" href="users"> <span class="fa fa-users"></span>
