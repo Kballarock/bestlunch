@@ -20,6 +20,12 @@ $(function () {
     makeEditable({
         ajaxUrl: menuAjaxUrl,
         datatableOpts: {
+            columnDefs: [
+                {
+                    targets: [3, 4],
+                    visible: role === 'ADMIN'
+                }
+            ],
             "columns": [
                 {
                     "data": "name"

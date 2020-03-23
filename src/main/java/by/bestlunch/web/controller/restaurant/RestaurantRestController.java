@@ -16,10 +16,13 @@ import java.time.LocalDate;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = RestaurantRestController.RESTAURANT_REST_URL, produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = {
+        RestaurantRestController.RESTAURANT_ADMIN_REST_URL,
+        RestaurantRestController.RESTAURANT_USER_REST_URL}, produces = MediaType.APPLICATION_JSON_VALUE)
 public class RestaurantRestController extends AbstractRestaurantController {
 
-    static final String RESTAURANT_REST_URL = "/rest/admin";
+    static final String RESTAURANT_ADMIN_REST_URL = "/rest/admin";
+    static final String RESTAURANT_USER_REST_URL = "/rest/restaurant";
 
     @Override
     @GetMapping("/{id}")
@@ -60,7 +63,7 @@ public class RestaurantRestController extends AbstractRestaurantController {
         Restaurant created = super.create(restaurant);
 
         URI uriOfNewResource = ServletUriComponentsBuilder.fromCurrentContextPath()
-                .path(RESTAURANT_REST_URL + "/{id}")
+                .path(RESTAURANT_ADMIN_REST_URL + "/{id}")
                 .buildAndExpand(created.getId()).toUri();
 
         return ResponseEntity.created(uriOfNewResource).body(created);

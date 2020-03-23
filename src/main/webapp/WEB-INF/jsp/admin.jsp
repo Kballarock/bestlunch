@@ -7,7 +7,7 @@
 <body>
 <jsp:include page="fragments/bodyHeader.jsp"/>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bestlunch.common.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bestlunch.restaurant.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bestlunch.admin.js"></script>
 <div class="bg-admin">
     <div class="p-5">
         <div class="container-filter bg-dark" style="color: white">
@@ -108,8 +108,4 @@
 <jsp:include page="fragments/i18n.jsp">
     <jsp:param name="page" value="restaurant"/>
 </jsp:include>
-<script>
-    var menuMsg = '<spring:message code="common.menu" />';
-    var voteMsg = '<spring:message code="common.vote" />';
-</script>
 </html>

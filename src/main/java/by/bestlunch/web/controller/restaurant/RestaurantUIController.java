@@ -13,7 +13,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @RestController
-@RequestMapping("/ajax/admin")
+@RequestMapping(value = {"/ajax/admin", "/ajax/restaurant"})
 public class RestaurantUIController extends AbstractRestaurantController {
 
     @Override

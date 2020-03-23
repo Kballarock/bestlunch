@@ -4,6 +4,7 @@ import by.bestlunch.persistence.model.Menu;
 import by.bestlunch.persistence.repository.MenuRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.Nullable;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
@@ -27,6 +28,7 @@ public class MenuService {
         return checkNotFoundWithId(repository.get(id, restaurantId), id);
     }
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public void delete(int id, int restaurantId) {
         checkNotFoundWithId(repository.delete(id, restaurantId), id);
     }
@@ -36,12 +38,14 @@ public class MenuService {
     }
 
     @Transactional
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public void update(Menu item, int restaurantId) {
         Assert.notNull(item, "menu must not be null");
         checkNotFoundWithId(repository.save(item, restaurantId), item.getId());
     }
 
     @Transactional
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public Menu create(Menu item, int restaurantId) {
         Assert.notNull(item, "menu must not be null");
         return repository.save(item, restaurantId);

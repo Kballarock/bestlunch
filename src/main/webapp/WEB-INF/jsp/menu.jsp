@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <html>
 <jsp:include page="fragments/headTag.jsp"/>
@@ -28,11 +29,13 @@
                     <span class="fa fa-remove"></span>
                     <spring:message code="common.clear"/>
                 </button>
+                <sec:authorize access="hasRole('ROLE_ADMIN')">
                 <button class="btn btn-orange pull-right" type="button" style="height: 38px;"
                         onclick="add()">
                     <span class="fa fa-plus"></span>
                     <spring:message code="menu.add"/>
                 </button>
+                </sec:authorize>
             </form>
         </div>
 
@@ -95,6 +98,8 @@
 </div>
 <jsp:include page="fragments/footer.jsp"/>
 <script>
+    var role = '<sec:authentication property="principal.authorities"/>'.substring(14, 19);
+    console.log(role);
     document.getElementById("menuTitle").innerHTML =
         '<spring:message code="menu.title"/>&nbsp;' + restaurantName;
 </script>

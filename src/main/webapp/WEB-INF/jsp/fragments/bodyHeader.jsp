@@ -49,7 +49,8 @@
                 </sec:authorize>
 
                 <div class="nav-item dropdown" style="color: #F3AD2E;">
-                    <a class="nav-link dropdown-toggle btn mr-1 btn-orange" style="height: 40px" id="dropdownuser" data-toggle="dropdown"
+                    <a class="nav-link dropdown-toggle btn mr-1 btn-orange" style="height: 40px" id="dropdownuser"
+                       data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false">
                         <span class="fa fa-user"> </span>
                         <sec:authentication property="principal.userDto.name"/>
@@ -92,4 +93,6 @@
     var localeCode = "${pageContext.response.locale}";
     var updateMsg = '<spring:message code="common.edit" />';
     var daleteMsg = '<spring:message code="common.delete" />';
+    var menuMsg = '<spring:message code="common.menu" />';
+    var voteMsg = '<spring:message code="common.vote" />';
 </script>

@@ -1,4 +1,4 @@
-var restaurantAjaxUrl = "ajax/restaurant/";
+var restaurantAjaxUrl = "ajax/admin/";
 
 function updateFilteredTable() {
     $.ajax({
@@ -94,6 +94,16 @@ $(function () {
                     "data": "vote",
                     "render": voteForRestaurant
                 },
+                {
+                    "orderable": false,
+                    "defaultContent": "",
+                    "render": renderEditBtn
+                },
+                {
+                    "orderable": false,
+                    "defaultContent": "",
+                    "render": renderDeleteBtn
+                }
             ],
             "order": [
                 [
