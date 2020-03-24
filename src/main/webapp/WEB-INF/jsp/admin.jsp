@@ -72,7 +72,7 @@
                         <div class="form-group">
                             <label for="name" class="col-form-label modal-label"><spring:message
                                     code="restaurant.name"/></label>
-                            <input type="text" class="form-control modal-input" id="name" name="name">
+                            <input type="" class="form-control modal-input" id="name" name="name">
                         </div>
 
                         <div class="form-group">
@@ -107,4 +107,10 @@
 <jsp:include page="fragments/i18n.jsp">
     <jsp:param name="page" value="restaurant"/>
 </jsp:include>
+<script>
+    $('#name').bind('keyup blur',function(){
+        var node = $(this);
+        node.val(node.val().replace(/[^a-z ]/g,'') );
+    });
+</script>
 </html>
