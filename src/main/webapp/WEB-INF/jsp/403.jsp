@@ -10,8 +10,8 @@
     <p><spring:message code="error.accessDenied"/></p>
     <hr>
 
-    <button class="btn btn-red-2" style="margin-top: 10px" onclick="window.history.back()">
-        <spring:message code="app.user.back"/></button>
+    <a class="btn btn-red-2" style="margin-top: 10px" href="restaurant">
+        <spring:message code="app.user.back"/></a>
 </div>
 </body>
 </html>

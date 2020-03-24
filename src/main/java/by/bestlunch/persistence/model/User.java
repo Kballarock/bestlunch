@@ -52,6 +52,10 @@ public class User extends AbstractNamedEntity implements HasEmail {
         super();
     }
 
+    public User(User u) {
+        this(u.getId(), u.getName(), u.getEmail(), u.getPassword(), u.isEnabled(), u.getRegistered(), u.getRoles());
+    }
+
     public User(Integer id, String name, String email, String password, Role role, Role... roles) {
         this(id, name, email, password, true, LocalDate.now(), EnumSet.of(role, roles));
     }
@@ -101,7 +105,7 @@ public class User extends AbstractNamedEntity implements HasEmail {
         return roles;
     }
 
-    private void setRoles(Collection<Role> roles) {
+    public void setRoles(Collection<Role> roles) {
         this.roles = CollectionUtils.isEmpty(roles) ? EnumSet.noneOf(Role.class) : EnumSet.copyOf(roles);
     }
 
