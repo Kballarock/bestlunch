@@ -50,7 +50,6 @@
                     <th><spring:message code="restaurant.address"/></th>
                     <th><spring:message code="restaurant.added"/></th>
                     <th><spring:message code="restaurant.votes"/></th>
-                    <th><spring:message code="restaurant.vote"/></th>
                     <th></th>
                     <th></th>
                 </tr>

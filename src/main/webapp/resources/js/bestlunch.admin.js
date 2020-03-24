@@ -25,41 +25,6 @@ $.ajaxSetup({
     }
 });
 
-function voteCreateOrUpdate(chkbox, id) {
-    var vote = chkbox.is(":checked");
-    console.log(vote);
-    $.ajax({
-        url: restaurantAjaxUrl + id + "/vote",
-        type: "POST",
-        data: "vote=" + vote
-    }).done(function () {
-        if (vote) {
-            $.get(restaurantAjaxUrl, updateTableByData);
-            successNoty(vote ? "common.vote.enabled" : "common.vote.disabled");
-        } else {
-            voteDelete(chkbox, id);
-        }
-    }).fail(function () {
-        $(chkbox).prop("checked", !vote);
-    });
-
-}
-
-function voteDelete(chkbox, id) {
-    var vote = chkbox.is(":checked");
-    $.ajax({
-        url: restaurantAjaxUrl + id + "/vote/",
-        type: "DELETE",
-        data: "vote=" + vote
-    }).done(function () {
-        $.get(restaurantAjaxUrl, updateTableByData);
-        successNoty(vote ? "common.vote.enabled" : "common.vote.disabled");
-    }).fail(function () {
-        $(chkbox).prop("checked", !vote);
-    });
-
-}
-
 $(function () {
     makeEditable({
         ajaxUrl: restaurantAjaxUrl,
@@ -89,10 +54,6 @@ $(function () {
                 },
                 {
                     "data": "amount"
-                },
-                {
-                    "data": "vote",
-                    "render": voteForRestaurant
                 },
                 {
                     "orderable": false,
@@ -166,20 +127,6 @@ function dateLocale(data, row) {
     return data;
 }
 
-function voteForRestaurant(data, type, row) {
-    if (type === "display") {
-        return "<div title='" + voteBtnTitle() + "' class='vote-checkbox' style='text-align: center'>" +
-            "<input id='" + row.id + "' type='checkbox' onclick='voteCreateOrUpdate($(this), " + row.id + ");' " + (data ? "checked" : "") + "/>" +
-            "<label for='" + row.id + "'></label>" +
-            "</div>";
-    }
-    return data;
-}
-
 function menuBtnTitle() {
     return menuMsg;
-}
-
-function voteBtnTitle() {
-    return voteMsg;
 }
