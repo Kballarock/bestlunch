@@ -10,13 +10,16 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bestlunch.users.js"></script>
 
 <div class="bg-admin">
-    <div class="p-5">
-        <div class="container bg-dark" style="color: white">
+    <div class="my-bg">
+        <div class="container-filter bg-dark p-2" style="color: white">
+                <button class="btn btn-orange pull-right" type="button" onclick="add()">
+                    <span class="fa fa-plus"></span>
+                    <spring:message code="user.add"/>
+                </button>
+        </div>
+
+        <div class="container bg-dark" style="color: white;">
             <h3 class="text-center p-3" style="color: white;"><spring:message code="user.title"/></h3>
-            <button class="btn btn-orange" onclick="add()">
-                <span class="fa fa-plus"></span>
-                <spring:message code="user.add"/>
-            </button>
             <table class="table table-striped table-dark" id="datatable">
                 <thead>
                 <tr>

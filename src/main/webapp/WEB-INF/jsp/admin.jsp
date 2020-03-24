@@ -9,8 +9,8 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bestlunch.common.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bestlunch.admin.js"></script>
 <div class="bg-admin">
-    <div class="p-5">
-        <div class="container-filter bg-dark" style="color: white">
+    <div class="my-bg">
+        <div class="container-filter bg-dark" style="color: white;">
             <form id="filter" class="p-2">
                 <label for="dateVotingFrom"><spring:message code="common.votingDayFrom"/></label>
                 <input id="dateVotingFrom" class="form-control-sm" style="height: 38px; width: 100px" name="startDate"

@@ -268,3 +268,9 @@ div.hidden {
 }
 
 th.dt-center, td.dt-center { text-align: center; }
+
+.my-bg {
+    position: absolute;
+    top: 14%;
+    left: 20%;
+}

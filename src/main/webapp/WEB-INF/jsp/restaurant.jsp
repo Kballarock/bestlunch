@@ -9,7 +9,7 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bestlunch.restaurant.js"></script>
 
 <div class="bg-user">
-    <div class="p-5">
+    <div class="my-bg">
         <div class="container-filter bg-dark" style="color: white">
             <form id="filter" class="p-2">
                 <label for="dateVotingFrom"><spring:message code="common.votingDayFrom"/></label>

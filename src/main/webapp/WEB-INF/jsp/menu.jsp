@@ -11,7 +11,7 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bestlunch.menu.js"></script>
 
 <div class="bg-menu">
-    <div class="p-5">
+    <div class="my-bg">
         <div class="container-filter bg-dark" style="color: white">
             <form id="menuFilter" class="p-2">
                 <label for="menuDate"><spring:message code="common.menuDate"/></label>
