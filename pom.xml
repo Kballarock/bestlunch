@@ -15,7 +15,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <spring.version>5.2.1.RELEASE</spring.version>
+        <spring.version>5.2.3.RELEASE</spring.version>
+        <spring-security.version>5.2.0.RELEASE</spring-security.version>
         <spring-data-jpa.version>2.2.1.RELEASE</spring-data-jpa.version>
         <tomcat.version>9.0.29</tomcat.version>
         <jackson-json.version>2.10.1</jackson-json.version>
@@ -79,19 +80,19 @@
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-web</artifactId>
-            <version>${spring.version}</version>
+            <version>${spring-security.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-config</artifactId>
-            <version>${spring.version}</version>
+            <version>${spring-security.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-taglibs</artifactId>
-            <version>${spring.version}</version>
+            <version>${spring-security.version}</version>
         </dependency>
 
         <!-- Hibernate -->
@@ -230,13 +231,14 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
+            <version>${spring.version}</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-test</artifactId>
-            <version>${spring.version}</version>
+            <version>${spring-security.version}</version>
             <scope>test</scope>
         </dependency>
 
