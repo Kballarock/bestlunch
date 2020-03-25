@@ -10,31 +10,32 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bestlunch.users.js"></script>
 
 <div class="bg-admin">
-    <div class="my-bg">
-        <div class="container-filter bg-dark p-2" style="color: white">
-                <button class="btn btn-orange pull-right" type="button" onclick="add()">
-                    <span class="fa fa-plus"></span>
-                    <spring:message code="user.add"/>
-                </button>
-        </div>
-
-        <div class="container bg-dark" style="color: white;">
-            <h3 class="text-center p-3" style="color: white;"><spring:message code="user.title"/></h3>
-            <table class="table table-striped table-dark" id="datatable">
-                <thead>
-                <tr>
-                    <th><spring:message code="user.name"/></th>
-                    <th><spring:message code="user.email"/></th>
-                    <th><spring:message code="user.roles"/></th>
-                    <th><spring:message code="user.active"/></th>
-                    <th><spring:message code="user.registered"/></th>
-                    <th></th>
-                    <th></th>
-                </tr>
-                </thead>
-            </table>
+    <div class="mask d-flex justify-content-center align-items-center">
+        <div class="container-filter bg-dark p-2" style="color: white; margin-top: 100px">
+            <button class="btn btn-orange pull-right" type="button" onclick="add()">
+                <span class="fa fa-plus"></span>
+                <spring:message code="user.add"/>
+            </button>
         </div>
     </div>
+
+    <div class="container bg-dark" style="color: white;">
+        <h3 class="text-center p-3" style="color: white;"><spring:message code="user.title"/></h3>
+        <table class="table table-striped table-dark" id="datatable">
+            <thead>
+            <tr>
+                <th><spring:message code="user.name"/></th>
+                <th><spring:message code="user.email"/></th>
+                <th><spring:message code="user.roles"/></th>
+                <th><spring:message code="user.active"/></th>
+                <th><spring:message code="user.registered"/></th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+
 
     <div class="modal fade" tabindex="-1" id="editRow">
         <div class="modal-dialog" style="color: white">
@@ -48,23 +49,28 @@
                         <input type="hidden" id="id" name="id">
 
                         <div class="form-group">
-                            <label for="name" class="col-form-label modal-label"><spring:message code="user.name"/></label>
+                            <label for="name" class="col-form-label modal-label"><spring:message
+                                    code="user.name"/></label>
                             <input type="text" class="form-control modal-input" id="name" name="name">
                         </div>
 
                         <div class="form-group">
-                            <label for="email" class="col-form-label modal-label"><spring:message code="user.email"/></label>
+                            <label for="email" class="col-form-label modal-label"><spring:message
+                                    code="user.email"/></label>
                             <input type="email" class="form-control modal-input" id="email" name="email">
                         </div>
 
                         <div class="form-group">
-                            <label for="password" class="col-form-label modal-label"><spring:message code="user.password"/></label>
+                            <label for="password" class="col-form-label modal-label"><spring:message
+                                    code="user.password"/></label>
                             <input type="password" class="form-control modal-input" id="password" name="password">
                         </div>
 
                         <div class="form-group">
-                            <label for="matchingPassword" class="col-form-label modal-label"><spring:message code="user.confirm.password"/></label>
-                            <input type="password" class="form-control modal-input" id="matchingPassword" name="matchingPassword">
+                            <label for="matchingPassword" class="col-form-label modal-label"><spring:message
+                                    code="user.confirm.password"/></label>
+                            <input type="password" class="form-control modal-input" id="matchingPassword"
+                                   name="matchingPassword">
                         </div>
                     </form>
                 </div>
@@ -81,7 +87,6 @@
             </div>
         </div>
     </div>
-
 </div>
 <jsp:include page="fragments/footer.jsp"/>
 </body>

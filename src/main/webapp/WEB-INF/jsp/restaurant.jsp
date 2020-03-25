@@ -9,8 +9,8 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/bestlunch.restaurant.js"></script>
 
 <div class="bg-user">
-    <div class="my-bg">
-        <div class="container-filter bg-dark" style="color: white">
+    <div class="mask d-flex justify-content-center align-items-center">
+        <div class="container-filter bg-dark" style="color: white; margin-top: 100px">
             <form id="filter" class="p-2">
                 <label for="dateVotingFrom"><spring:message code="common.votingDayFrom"/></label>
                 <input id="dateVotingFrom" class="form-control-sm" style="height: 38px; width: 100px" name="startDate"
@@ -33,23 +33,23 @@
                 </button>
             </form>
         </div>
+    </div>
 
-        <div class="container bg-dark" style="color: white">
-            <h3 class="text-center p-3" style="color: white;"><spring:message code="restaurant.title"/></h3>
-            <table class="table table-striped table-dark" id="datatable">
-                <thead>
-                <tr>
-                    <th><spring:message code="restaurant.menu"/></th>
-                    <th><spring:message code="restaurant.name"/></th>
-                    <th><spring:message code="restaurant.description"/></th>
-                    <th><spring:message code="restaurant.address"/></th>
-                    <th><spring:message code="restaurant.added"/></th>
-                    <th><spring:message code="restaurant.votes"/></th>
-                    <th><spring:message code="restaurant.vote"/></th>
-                </tr>
-                </thead>
-            </table>
-        </div>
+    <div class="container bg-dark" style="color: white">
+        <h3 class="text-center p-3" style="color: white;"><spring:message code="restaurant.title"/></h3>
+        <table class="table table-striped table-dark" id="datatable">
+            <thead>
+            <tr>
+                <th><spring:message code="restaurant.menu"/></th>
+                <th><spring:message code="restaurant.name"/></th>
+                <th><spring:message code="restaurant.description"/></th>
+                <th><spring:message code="restaurant.address"/></th>
+                <th><spring:message code="restaurant.added"/></th>
+                <th><spring:message code="restaurant.votes"/></th>
+                <th><spring:message code="restaurant.vote"/></th>
+            </tr>
+            </thead>
+        </table>
     </div>
 </div>
 <jsp:include page="fragments/footer.jsp"/>

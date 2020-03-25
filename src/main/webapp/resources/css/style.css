@@ -24,7 +24,6 @@ body, html {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    position: relative;
 }
 
 .bg-menu {
@@ -36,7 +35,6 @@ body, html {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    position: relative;
 }
 
 .bg-user {
@@ -48,7 +46,6 @@ body, html {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    position: relative;
 }
 
 .bg-admin {
@@ -72,7 +69,6 @@ body, html {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    position: relative;
 }
 
 .bg-login {
@@ -84,7 +80,6 @@ body, html {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    position: relative;
 }
 
 .bg {
@@ -98,7 +93,6 @@ body, html {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    position: relative;
 }
 
 .logo-text {
@@ -268,9 +262,3 @@ div.hidden {
 }
 
 th.dt-center, td.dt-center { text-align: center; }
-
-.my-bg {
-    position: absolute;
-    top: 14%;
-    left: 20%;
-}
