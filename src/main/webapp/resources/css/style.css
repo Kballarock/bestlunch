@@ -29,7 +29,7 @@ body, html {
 .bg-menu {
     background-image: url("../image/menu.jpeg");
     /* Full height */
-    height: 120%;
+    height: 138%;
 
     /* Center and scale the image nicely */
     background-position: center;
@@ -40,7 +40,7 @@ body, html {
 .bg-user {
     background-image: url("../image/userhome.jpg");
     /* Full height */
-    height: 120%;
+    height: 138%;
 
     /* Center and scale the image nicely */
     background-position: center;
@@ -51,7 +51,7 @@ body, html {
 .bg-admin {
     background-image: url("../image/admin_image.jpeg");
     /* Full height */
-    height: 120%;
+    height: 138%;
 
     /* Center and scale the image nicely */
     background-position: center;
