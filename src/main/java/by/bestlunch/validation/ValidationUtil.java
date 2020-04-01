@@ -8,7 +8,6 @@ import by.bestlunch.util.exception.NotFoundException;
 import org.slf4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
-
 public class ValidationUtil {
 
     private ValidationUtil() {

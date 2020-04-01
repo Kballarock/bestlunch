@@ -2,11 +2,13 @@ package by.bestlunch.persistence.model.base;
 
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
+import javax.validation.constraints.NotBlank;
 
 @MappedSuperclass
 public abstract class AbstractNamedEntity extends AbstractBaseEntity {
 
     @Column(name = "name", nullable = false)
+    @NotBlank
     private String name;
 
     protected AbstractNamedEntity() {

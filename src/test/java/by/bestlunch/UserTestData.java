@@ -23,5 +23,5 @@ public class UserTestData {
         updated.setRoles(Collections.singletonList(Role.ROLE_ADMIN));
         return updated;
     }
-    /*public static TestMatchers<User> USER_MATCHERS = TestMatchers.useFieldsComparator(User.class, "registered", "meals", "password");*/
+    public static TestMatchers<User> USER_MATCHERS = TestMatchers.useFieldsComparator(User.class, "registered", "password");
 }
