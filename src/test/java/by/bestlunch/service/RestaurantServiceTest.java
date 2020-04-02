@@ -96,9 +96,7 @@ class RestaurantServiceTest extends AbstractServiceTest {
         Set<ConstraintViolation<Restaurant>> violations = validator.validate(restaurant, ErrorSequence.First.class);
 
         assertThat(violations.size()).isEqualTo(1);
-        violations.forEach(action -> {
-            assertThat(action.getMessage()).isEqualTo("{restaurant.NotBlank.description}");
-        });
+        violations.forEach(action -> assertThat(action.getMessage()).isEqualTo("{restaurant.NotBlank.description}"));
     }
 
     @Test
@@ -122,9 +120,7 @@ class RestaurantServiceTest extends AbstractServiceTest {
         Set<ConstraintViolation<Restaurant>> violations = validator.validate(restaurant, ErrorSequence.Second.class);
 
         assertThat(violations.size()).isEqualTo(1);
-        violations.forEach(action -> {
-            assertThat(action.getMessage()).isEqualTo("{restaurant.Size.description}");
-        });
+        violations.forEach(action -> assertThat(action.getMessage()).isEqualTo("{restaurant.Size.description}"));
     }
 
     @Test
@@ -135,9 +131,7 @@ class RestaurantServiceTest extends AbstractServiceTest {
         Set<ConstraintViolation<Restaurant>> violations = validator.validate(restaurant, ErrorSequence.First.class);
 
         assertThat(violations.size()).isEqualTo(1);
-        violations.forEach(action -> {
-            assertThat(action.getMessage()).isEqualTo("{restaurant.NotBlank.address}");
-        });
+        violations.forEach(action -> assertThat(action.getMessage()).isEqualTo("{restaurant.NotBlank.address}"));
     }
 
     @Test
@@ -148,9 +142,7 @@ class RestaurantServiceTest extends AbstractServiceTest {
         Set<ConstraintViolation<Restaurant>> violations = validator.validate(restaurant, ErrorSequence.Second.class);
 
         assertThat(violations.size()).isEqualTo(1);
-        violations.forEach(action -> {
-            assertThat(action.getMessage()).isEqualTo("{restaurant.Size.address}");
-        });
+        violations.forEach(action -> assertThat(action.getMessage()).isEqualTo("{restaurant.Size.address}"));
     }
 
     @Test
@@ -161,8 +153,6 @@ class RestaurantServiceTest extends AbstractServiceTest {
         Set<ConstraintViolation<Restaurant>> violations = validator.validate(restaurant, ErrorSequence.Second.class);
 
         assertThat(violations.size()).isEqualTo(1);
-        violations.forEach(action -> {
-            assertThat(action.getMessage()).isEqualTo("{restaurant.Size.address}");
-        });
+        violations.forEach(action -> assertThat(action.getMessage()).isEqualTo("{restaurant.Size.address}"));
     }
 }
