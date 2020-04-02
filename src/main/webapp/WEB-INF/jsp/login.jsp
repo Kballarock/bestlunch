@@ -11,7 +11,7 @@
 <body>
 <jsp:include page="fragments/bodyHeader.jsp"/>
 <div class="bg-login">
-    <div id="log" class="wrapper fadeInDown">
+    <div id="log" class="wrapper fadeInDown" style="margin-top: 10px">
         <div id="formContent">
 
             <!-- Icon -->

@@ -63,7 +63,7 @@ body, html {
 .bg-registration {
     background-image: url("../image/reg_logo.jpg");
     /* Full height */
-    height: 100%;
+    height: 140%;
 
     /* Center and scale the image nicely */
     background-position: center;
@@ -74,7 +74,7 @@ body, html {
 .bg-login {
     background-image: url("../image/food_login.jpeg");
     /* Full height */
-    height: 100%;
+    height: 138%;
 
     /* Center and scale the image nicely */
     background-position: center;

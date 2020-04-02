@@ -11,7 +11,7 @@
 <jsp:include page="fragments/bodyHeader.jsp"/>
 
 <div class="bg-registration">
-    <div id="regForm" class="wrapper fadeInDown">
+    <div id="regForm" class="wrapper fadeInDown" style="margin-top: 45px">
         <div id="formContent">
             <!-- Reg Form -->
             <div id="regIcon" class="fadeIn first">
