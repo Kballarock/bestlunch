@@ -20,13 +20,13 @@ import java.time.LocalTime;
 @Table(name = "restaurant")
 public class Restaurant extends AbstractNamedEntity {
 
-    @NotBlank(message = "{restaurantDto.NotBlank.description}", groups = ErrorSequence.First.class)
-    @Size(min = 2, max = 150, message = "{restaurantDto.Size.description}", groups = ErrorSequence.Second.class)
+    @NotBlank(message = "{restaurant.NotBlank.description}", groups = ErrorSequence.First.class)
+    @Size(min = 2, max = 150, message = "{restaurant.Size.description}", groups = ErrorSequence.Second.class)
     @Column(name = "description", nullable = false)
     private String description;
 
-    @NotBlank(message = "{restaurantDto.NotBlank.address}", groups = ErrorSequence.First.class)
-    @Size(min = 2, max = 150, message = "{restaurantDto.Size.address}", groups = ErrorSequence.Second.class)
+    @NotBlank(message = "{restaurant.NotBlank.address}", groups = ErrorSequence.First.class)
+    @Size(min = 2, max = 150, message = "{restaurant.Size.address}", groups = ErrorSequence.Second.class)
     @Column(name = "address", nullable = false)
     private String address;
 
@@ -40,8 +40,12 @@ public class Restaurant extends AbstractNamedEntity {
         super();
     }
 
-    public Restaurant(String name, String description, String address, LocalDateTime added) {
-        this(null, name, description, address, added);
+    public Restaurant(String name, String description, String address) {
+        this(null, name, description, address, LocalDateTime.now());
+    }
+
+    public Restaurant(Restaurant restaurant) {
+        this(restaurant.getId(), restaurant.getName(), restaurant.getDescription(), restaurant.getAddress(), restaurant.getAdded());
     }
 
     public Restaurant(Integer id, String name, String description, String address, LocalDateTime added) {
