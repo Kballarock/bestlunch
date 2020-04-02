@@ -31,7 +31,7 @@ CREATE TABLE restaurant
   id          INTEGER AUTO_INCREMENT PRIMARY KEY,
   name        VARCHAR(150)           NOT NULL,
   description VARCHAR(255)           NOT NULL,
-  address     VARCHAR(150)           NOT NULL,
+  address     VARCHAR(255)           NOT NULL,
   added       DATETIME DEFAULT now() NOT NULL
 )
   ENGINE = InnoDB

@@ -14,7 +14,7 @@ public class UserTestData {
     public static final User USER = new User(100001, "User", "user@user.com", "admin", true, of(2019, 12, 16), Collections.singleton(Role.ROLE_USER));
 
     public static User getNew() {
-        return new User(100001, "User", "user@user.com", "admin", true, LocalDate.now(), Collections.singleton(Role.ROLE_USER));
+        return new User(null, "NewUser", "newuser@newuser.com", "password", true, LocalDate.now(), Collections.singleton(Role.ROLE_USER));
     }
 
     public static User getUpdated() {
@@ -23,5 +23,6 @@ public class UserTestData {
         updated.setRoles(Collections.singletonList(Role.ROLE_ADMIN));
         return updated;
     }
+
     public static TestMatchers<User> USER_MATCHERS = TestMatchers.useFieldsComparator(User.class, "registered", "password");
 }
