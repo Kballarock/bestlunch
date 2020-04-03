@@ -17,7 +17,7 @@ import java.time.LocalDate;
 public class Menu extends AbstractBaseEntity {
 
     @NotBlank(message = "{menu.NotBlank.name}", groups = ErrorSequence.First.class)
-    @Size(min = 2, max = 255, message = "{menu.Size.name}", groups = ErrorSequence.Second.class)
+    @Size(min = 2, max = 200, message = "{menu.Size.name}", groups = ErrorSequence.Second.class)
     private String name;
 
     @NotNull(message = "{menu.NotNull.price}", groups = ErrorSequence.First.class)
@@ -43,6 +43,10 @@ public class Menu extends AbstractBaseEntity {
 
     public Menu(String name, Double price) {
         this(null, name, price, LocalDate.now());
+    }
+
+    public Menu(Menu item) {
+        this(item.getId(), item.getName(), item.getPrice(), item.getDate());
     }
 
     public Menu(Integer id, String name, Double price, LocalDate date) {
