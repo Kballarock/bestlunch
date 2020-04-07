@@ -27,7 +27,6 @@ $.ajaxSetup({
 
 function voteCreateOrUpdate(chkbox, id) {
     var vote = chkbox.is(":checked");
-    console.log(vote);
     $.ajax({
         url: restaurantAjaxUrl + id + "/vote",
         type: "POST",
@@ -93,7 +92,7 @@ $(function () {
                 {
                     "data": "vote",
                     "render": voteForRestaurant
-                },
+                }
             ],
             "order": [
                 [

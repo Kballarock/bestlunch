@@ -13,18 +13,6 @@ function clearFilter() {
     $.get(restaurantAjaxUrl, updateTableByData);
 }
 
-$.ajaxSetup({
-    converters: {
-        "text json": function (stringData) {
-            var json = JSON.parse(stringData);
-            $(json).each(function () {
-                this.added = this.added.replace('T', ' ').substr(0, 16);
-            });
-            return json;
-        }
-    }
-});
-
 $(function () {
     makeEditable({
         ajaxUrl: restaurantAjaxUrl,
