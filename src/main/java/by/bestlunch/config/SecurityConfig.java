@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -20,6 +21,7 @@ import org.springframework.security.web.authentication.logout.LogoutSuccessHandl
 @Configuration
 @EnableWebSecurity
 @ComponentScan({"by.bestlunch"})
+@Order(1)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final UserDetailsService userDetailsService;
@@ -63,11 +65,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(final HttpSecurity http) throws Exception {
-        http.authorizeRequests()
+        http
+                .authorizeRequests()
                 .antMatchers("/welcome", "/login", "/registration", "/exception").permitAll()
                 .antMatchers("/login", "/registration").hasRole("ANONYMOUS")
-                .antMatchers("/restaurant", "/profile", "/rest/profile/**", "/menu").hasAnyRole("ADMIN", "USER")
-                .antMatchers("/admin/**", "/users", "/rest/admin/**", "/ajax/admin/**").hasRole("ADMIN")
+                .antMatchers("/restaurant", "/profile", "/menu").hasAnyRole("ADMIN", "USER")
+                .antMatchers("/admin/**", "/users", "/ajax/admin/**").hasRole("ADMIN")
                 .and()
                 .formLogin()
                 .loginPage("/login")
