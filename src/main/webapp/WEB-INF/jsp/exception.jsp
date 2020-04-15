@@ -6,7 +6,7 @@
 <jsp:include page="fragments/headTag.jsp"/>
 <body>
 <jsp:include page="fragments/bodyHeader.jsp"/>
-<div class="alert alert-exc alert-danger-exc" role="alert">
+<div class="alert alert-exc alert-danger-exc" style="margin-top: 120px;" role="alert">
 
     <h4 class="alert-heading">${status}</h4>
     <p>${typeMessage}</p>

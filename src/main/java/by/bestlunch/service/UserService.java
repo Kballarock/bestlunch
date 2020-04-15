@@ -2,12 +2,15 @@ package by.bestlunch.service;
 
 import by.bestlunch.persistence.model.User;
 import by.bestlunch.persistence.repository.UserRepository;
+import by.bestlunch.security.AuthorizedUser;
 import by.bestlunch.util.UserUtil;
 import by.bestlunch.web.dto.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,7 +24,7 @@ import static by.bestlunch.validation.ValidationUtil.checkNotFoundWithId;
 
 @Service
 @Scope(proxyMode = ScopedProxyMode.TARGET_CLASS)
-public class UserService {
+public class UserService implements UserDetailsService {
 
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
@@ -72,6 +75,15 @@ public class UserService {
         User user = get(id);
         user.setEnabled(enabled);
         userRepository.save(user);
+    }
+
+    @Override
+    public AuthorizedUser loadUserByUsername(String email) throws UsernameNotFoundException {
+        User user = userRepository.getByEmail(email.toLowerCase());
+        if (user == null) {
+            throw new UsernameNotFoundException("User " + email + " is not found");
+        }
+        return new AuthorizedUser(user);
     }
 
     private User prepareAndSave(User user) {
