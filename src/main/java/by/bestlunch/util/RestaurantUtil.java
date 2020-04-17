@@ -12,29 +12,36 @@ import java.util.stream.Collectors;
 
 public class RestaurantUtil {
 
-    public static List<RestaurantDto> getFilteredWithCount(Collection<Restaurant> restaurants,
+    private RestaurantUtil() {
+    }
+
+    public static List<RestaurantDto> getDtoWithCount(int userId, Collection<Restaurant> restaurants,
+                                                      Collection<Vote> votes) {
+        return getAllWithCount(userId, restaurants, votes, restaurant -> true);
+    }
+
+    public static List<RestaurantDto> getFilteredWithCount(int userId, Collection<Restaurant> restaurants,
                                                            Collection<Vote> votes,
                                                            @Nullable LocalDate startDate,
                                                            @Nullable LocalDate endDate) {
-        return getAllWithCount(restaurants, votes, vote ->
+        return getAllWithCount(userId, restaurants, votes, vote ->
                 Util.isBetweenInclusive(vote.getVotingDate(), startDate, endDate));
 
     }
 
-
-    public static List<RestaurantDto> getAllWithCount(Collection<Restaurant> restaurants,
-                                                      Collection<Vote> votes, Predicate<Vote> filter) {
+    private static List<RestaurantDto> getAllWithCount(int userId, Collection<Restaurant> restaurants,
+                                                       Collection<Vote> votes, Predicate<Vote> filter) {
 
         Map<Restaurant, Long> map = votes.stream().filter(filter)
                 .collect(Collectors.groupingBy(Vote::getRestaurant, Collectors.counting()));
 
         return restaurants.stream()
                 .map(restaurant -> getRestaurantDto(restaurant, map.get(restaurant),
-                        getVoteForAuthUserPerDate(votes, SecurityUtil.authUserId(), restaurant, LocalDate.now())))
+                        getVoteForAuthUserPerDate(votes, userId, restaurant, LocalDate.now())))
                 .collect(Collectors.toList());
     }
 
-    private static RestaurantDto getRestaurantDto(Restaurant restaurant, Long amount, Boolean vote) {
+    public static RestaurantDto getRestaurantDto(Restaurant restaurant, Long amount, Boolean vote) {
         return new RestaurantDto(restaurant.getId(),
                 restaurant.getName(),
                 restaurant.getAddress(),

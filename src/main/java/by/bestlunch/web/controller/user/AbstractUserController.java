@@ -36,7 +36,7 @@ public abstract class AbstractUserController {
     }
 
     public User get(int id) {
-        log.info("get {}", id);
+        log.info("getId {}", id);
         return service.get(id);
     }
 

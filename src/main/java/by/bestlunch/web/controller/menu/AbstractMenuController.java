@@ -19,7 +19,7 @@ public abstract class AbstractMenuController {
     private MenuService menuService;
 
     public Menu get(int id, int restaurantId) {
-        log.info("get menu item {} for restaurant {}", id, restaurantId);
+        log.info("getId menu item {} for restaurant {}", id, restaurantId);
         return menuService.get(id, restaurantId);
     }
 

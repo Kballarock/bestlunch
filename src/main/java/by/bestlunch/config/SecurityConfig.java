@@ -50,7 +50,6 @@ public class SecurityConfig extends GlobalMethodSecurityConfiguration {
     @Configuration
     public static class FormLoginWebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter {
 
-        private final RestBasicAuthenticationEntryPoint authenticationEntryPoint;
         private final AuthenticationSuccessHandler authSuccessHandler;
         private final AccessDeniedHandler accessDeniedHandler;
         private final LogoutSuccessHandler logoutSuccessHandler;
@@ -61,13 +60,11 @@ public class SecurityConfig extends GlobalMethodSecurityConfiguration {
                 AuthenticationSuccessHandler authSuccessHandler,
                 AccessDeniedHandler accessDeniedHandler,
                 LogoutSuccessHandler myLogoutSuccessHandler,
-                AuthenticationFailureHandler authFailureHandler,
-                RestBasicAuthenticationEntryPoint authenticationEntryPoint) {
+                AuthenticationFailureHandler authFailureHandler) {
             this.authSuccessHandler = authSuccessHandler;
             this.accessDeniedHandler = accessDeniedHandler;
             this.logoutSuccessHandler = myLogoutSuccessHandler;
             this.authFailureHandler = authFailureHandler;
-            this.authenticationEntryPoint = authenticationEntryPoint;
         }
 
         @Bean

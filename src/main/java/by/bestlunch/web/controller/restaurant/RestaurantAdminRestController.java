@@ -16,13 +16,11 @@ import java.time.LocalDate;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = {
-        RestaurantRestController.RESTAURANT_ADMIN_REST_URL,
-        RestaurantRestController.RESTAURANT_USER_REST_URL}, produces = MediaType.APPLICATION_JSON_VALUE)
-public class RestaurantRestController extends AbstractRestaurantController {
+@RequestMapping(value = {RestaurantAdminRestController.RESTAURANT_ADMIN_REST_URL},
+        produces = MediaType.APPLICATION_JSON_VALUE)
+public class RestaurantAdminRestController extends AbstractRestaurantController {
 
     static final String RESTAURANT_ADMIN_REST_URL = "/rest/admin";
-    static final String RESTAURANT_USER_REST_URL = "/rest/restaurant";
 
     @Override
     @GetMapping("/{id}")
@@ -50,7 +48,6 @@ public class RestaurantRestController extends AbstractRestaurantController {
         return super.getBetween(startDate, endDate);
     }
 
-
     @Override
     @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
@@ -59,7 +56,7 @@ public class RestaurantRestController extends AbstractRestaurantController {
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Restaurant> createWithLocation(@Validated(View.Web.class) @RequestBody Restaurant restaurant) {
+    public ResponseEntity<Restaurant> createNewRestaurant(@Validated(View.Web.class) @RequestBody Restaurant restaurant) {
         Restaurant created = super.create(restaurant);
 
         URI uriOfNewResource = ServletUriComponentsBuilder.fromCurrentContextPath()
@@ -67,19 +64,5 @@ public class RestaurantRestController extends AbstractRestaurantController {
                 .buildAndExpand(created.getId()).toUri();
 
         return ResponseEntity.created(uriOfNewResource).body(created);
-    }
-
-    @Override
-    @PostMapping(value = "/{id}/vote", consumes = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseStatus(value = HttpStatus.NO_CONTENT)
-    public void createOrUpdateVote(@PathVariable int id) {
-        super.createOrUpdateVote(id);
-    }
-
-    @Override
-    @DeleteMapping("{id}/vote")
-    @ResponseStatus(value = HttpStatus.NO_CONTENT)
-    public void deleteVote(@PathVariable int id) {
-        super.deleteVote(id);
     }
 }

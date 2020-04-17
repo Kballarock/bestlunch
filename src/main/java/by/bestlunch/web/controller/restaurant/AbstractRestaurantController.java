@@ -15,7 +15,7 @@ import org.springframework.lang.Nullable;
 import java.time.LocalDate;
 import java.util.List;
 
-import static by.bestlunch.util.RestaurantUtil.getAllWithCount;
+import static by.bestlunch.util.RestaurantUtil.getDtoWithCount;
 import static by.bestlunch.validation.ValidationUtil.assureIdConsistent;
 import static by.bestlunch.validation.ValidationUtil.checkNew;
 
@@ -35,21 +35,23 @@ public abstract class AbstractRestaurantController {
     }
 
     public List<RestaurantDto> getAllWithCountPerDate() {
-        log.info("get restaurants with count votes on date = {}", LOCAL_DATE);
+        int userId = SecurityUtil.authUserId();
+        log.info("getId restaurants with count votes on date = {}", LOCAL_DATE);
         List<Vote> votes = voteService.getAllByDate(LOCAL_DATE);
-        return getAllWithCount(getAll(), votes, restaurant -> true);
+        return getDtoWithCount(userId, getAll(), votes);
     }
 
 
     public List<RestaurantDto> getBetween(@Nullable LocalDate startDate,
                                           @Nullable LocalDate endDate) {
+        int userId = SecurityUtil.authUserId();
         log.info("getBetween dates({} - {})", startDate, endDate);
         List<Vote> votesDateFiltered = voteService.getBetween(startDate, endDate);
-        return RestaurantUtil.getFilteredWithCount(getAll(), votesDateFiltered, startDate, endDate);
+        return RestaurantUtil.getFilteredWithCount(userId, getAll(), votesDateFiltered, startDate, endDate);
     }
 
     public Restaurant get(int id) {
-        log.info("get {}", id);
+        log.info("getId {}", id);
         return restaurantService.get(id);
     }
 
@@ -70,10 +72,10 @@ public abstract class AbstractRestaurantController {
         restaurantService.update(restaurant);
     }
 
-    public void createOrUpdateVote(int id) {
+    Vote createOrUpdateVote(int id) {
         int userId = SecurityUtil.authUserId();
         log.info("createOrUpdateVote vote for restaurant id {}", id);
-        voteService.createOrUpdate(userId, id);
+        return voteService.createOrUpdate(userId, id);
     }
 
     public void deleteVote(int id) {

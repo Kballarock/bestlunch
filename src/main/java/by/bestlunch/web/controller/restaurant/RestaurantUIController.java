@@ -51,9 +51,8 @@ public class RestaurantUIController extends AbstractRestaurantController {
         }
     }
 
-    @Override
     @PostMapping("/{id}/vote")
-    public void createOrUpdateVote(@PathVariable int id) {
+    public void createOrUpdateUserVoteToday(@PathVariable int id) {
         super.createOrUpdateVote(id);
     }
 

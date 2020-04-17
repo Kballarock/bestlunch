@@ -1,7 +1,9 @@
 package by.bestlunch.web.dto;
 
+import java.beans.ConstructorProperties;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 public class RestaurantDto extends BaseDto {
 
@@ -15,6 +17,7 @@ public class RestaurantDto extends BaseDto {
     public RestaurantDto() {
     }
 
+    @ConstructorProperties({"id", "name", "description", "address", "added", "amount", "vote"})
     public RestaurantDto(Integer id, String name, String description, String address, LocalDateTime added, Integer amount, Boolean vote) {
         super(id);
         this.name = name;
@@ -75,6 +78,24 @@ public class RestaurantDto extends BaseDto {
 
     public void setVote(Boolean vote) {
         this.vote = vote;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        RestaurantDto that = (RestaurantDto) o;
+        return amount.equals(that.amount) &&
+                vote == that.vote &&
+                Objects.equals(id, that.id) &&
+                Objects.equals(added, that.added) &&
+                Objects.equals(name, that.name) &&
+                Objects.equals(description, that.description);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, description, address, added, amount, vote);
     }
 
     @Override
