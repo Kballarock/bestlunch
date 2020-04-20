@@ -1,7 +1,7 @@
 package by.bestlunch.web.controller.menu;
 
 import by.bestlunch.persistence.model.Menu;
-import by.bestlunch.validation.view.View;
+import by.bestlunch.validation.view.ErrorSequence;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +17,7 @@ import java.util.List;
 import static by.bestlunch.util.DateTimeUtil.getCurrentDate;
 
 @RestController
-@RequestMapping(value = "/rest/{restaurantId}/menu", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "/rest/restaurant/{restaurantId}/menu/item", produces = MediaType.APPLICATION_JSON_VALUE)
 public class MenuRestController extends AbstractMenuController {
 
     @Override
@@ -40,12 +40,12 @@ public class MenuRestController extends AbstractMenuController {
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Menu> createWithLocation(@Validated(View.Web.class) @RequestBody Menu item,
+    public ResponseEntity<Menu> createWithLocation(@Validated(ErrorSequence.class) @RequestBody Menu item,
                                                    @PathVariable("restaurantId") int restaurantId) {
         Menu created = super.create(item, restaurantId);
 
         URI uriOfNewResource = ServletUriComponentsBuilder.fromCurrentContextPath()
-                .path("/rest/{restaurantId}/menu" + "/{id}")
+                .path("/rest/restaurant/{restaurantId}/menu/item")
                 .buildAndExpand(created.getId()).toUri();
 
         return ResponseEntity.created(uriOfNewResource).body(created);
@@ -54,7 +54,8 @@ public class MenuRestController extends AbstractMenuController {
     @Override
     @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
-    public void update(Menu item, @PathVariable("id") int id, int restaurantId) {
+    public void update(@Validated(ErrorSequence.class) @RequestBody Menu item,
+                       @PathVariable("id") int id, @PathVariable("restaurantId") int restaurantId) {
         super.update(item, item.getId(), restaurantId);
     }
 }

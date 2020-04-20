@@ -3,7 +3,7 @@ package by.bestlunch.persistence.model;
 import by.bestlunch.persistence.model.base.AbstractBaseEntity;
 import by.bestlunch.util.DateTimeUtil;
 import by.bestlunch.validation.view.ErrorSequence;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import by.bestlunch.validation.view.View;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -34,7 +34,7 @@ public class Menu extends AbstractBaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "restaurant_id", nullable = false)
-    @JsonIgnore
+    @NotNull(groups = View.Persist.class)
     private Restaurant restaurant;
 
     public Menu() {
