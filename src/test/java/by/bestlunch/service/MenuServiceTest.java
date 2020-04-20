@@ -85,7 +85,7 @@ class MenuServiceTest extends AbstractServiceTest {
     void update() {
         Menu updated = getUpdated();
         service.update(updated, RESTAURANT_BURGER_KING.getId());
-        MENU_MATCHERS.assertMatch(service.get(MENU_ITEM2.getId(), RESTAURANT_BURGER_KING.getId()), updated);
+        MENU_MATCHERS.assertMatch(service.get(MENU_ITEM5.getId(), RESTAURANT_BURGER_KING.getId()), updated);
     }
 
     @Test
