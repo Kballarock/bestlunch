@@ -3,7 +3,6 @@ package by.bestlunch.web.controller.user;
 import by.bestlunch.persistence.model.User;
 import by.bestlunch.util.UserUtil;
 import by.bestlunch.validation.view.View;
-import by.bestlunch.web.dto.UserDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -49,8 +48,8 @@ public class AdminRestController extends AbstractUserController {
     @Override
     @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
-    public void update(@Validated(View.Web.class) @RequestBody UserDto userDto, @PathVariable int id) {
-        super.update(userDto, id);
+    public void update(@Validated(View.Web.class) @RequestBody User user, @PathVariable int id) {
+        super.update(user, id);
     }
 
     @GetMapping("/by")

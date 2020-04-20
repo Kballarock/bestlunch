@@ -25,7 +25,7 @@ public abstract class AbstractUserController {
     @Autowired
     private UniqueMailValidator mailValidator;
 
-    @InitBinder("userDto")
+    @InitBinder({"userDto", "user"})
     protected void initBinder(WebDataBinder binder) {
         binder.addValidators(mailValidator);
     }
@@ -54,6 +54,12 @@ public abstract class AbstractUserController {
     public void delete(int id) {
         log.info("delete {}", id);
         service.delete(id);
+    }
+
+    public void update(User user, int id) {
+        log.info("update {} with id={}", user, id);
+        assureIdConsistent(user, id);
+        service.update(user);
     }
 
     public void update(UserDto userDto, int id) {

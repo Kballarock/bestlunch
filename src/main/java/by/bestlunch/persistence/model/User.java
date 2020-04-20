@@ -35,7 +35,6 @@ public class User extends AbstractNamedEntity implements HasEmail {
     @Column(name = "password", nullable = false)
     private String password;
 
-    @NotNull
     @Column(name = "enabled", nullable = false, columnDefinition = "bool default true")
     private boolean enabled = true;
 

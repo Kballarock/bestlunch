@@ -90,7 +90,7 @@ public abstract class AbstractControllerTest {
         return doGet("{id}", id);
     }
 
-    protected RequestWrapper doDelete(String s) {
+    protected RequestWrapper doDelete() {
         return wrap(MockMvcRequestBuilders.delete(url));
     }
 
@@ -159,7 +159,7 @@ public abstract class AbstractControllerTest {
     }
 
     private String getMessage(String code) {
-        return messageUtil.getMessage(code, MessageUtil.RU_LOCALE);
+        return messageUtil.getMessage(code, MessageUtil.EN_LOCALE);
     }
 
     public ResultMatcher errorType(ErrorType type) {
