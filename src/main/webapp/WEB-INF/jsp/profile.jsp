@@ -15,10 +15,10 @@
         <div id="formContent">
             <!-- Profile Form -->
             <div id="regIcon" class="fadeIn">
-                <img style="width: 120px; margin-top: 15px"
+                <img class="card-img" style="max-width: 20%; height: auto; margin-top: 5px"
                      src="${pageContext.request.contextPath}/resources/image/setting_icon.jpeg"
                      id="icon" alt="User Icon"/>
-                <h4><spring:message code="app.profile.form.title"/></h4>
+                <h5><spring:message code="app.profile.form.title"/></h5>
             </div>
 
             <%--@elvariable id="userDto" type="by.bestlunch.web.dto.UserDto"--%>

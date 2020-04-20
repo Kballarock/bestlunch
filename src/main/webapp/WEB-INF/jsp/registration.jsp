@@ -15,9 +15,9 @@
         <div id="formContent">
             <!-- Reg Form -->
             <div id="regIcon" class="fadeIn first">
-                <img style="width: 170px" src="${pageContext.request.contextPath}/resources/image/user_icon.png"
+                <img class="card-img" style="max-width: 20%; height: auto" src="${pageContext.request.contextPath}/resources/image/user_icon.png"
                      id="icon" alt="User Icon"/>
-                <h3><spring:message code="app.sing.up.message"/></h3>
+                <h5><spring:message code="app.sing.up.message"/></h5>
             </div>
 
             <%--@elvariable id="userDto" type="by.bestlunch.web.dto.UserDto"--%>

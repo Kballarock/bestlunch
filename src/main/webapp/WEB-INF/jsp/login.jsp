@@ -11,14 +11,14 @@
 <body>
 <jsp:include page="fragments/bodyHeader.jsp"/>
 <div class="bg-login">
-    <div id="log" class="wrapper fadeInDown" style="margin-top: 10px">
+    <div id="log" class="wrapper fadeInDown">
         <div id="formContent">
 
             <!-- Icon -->
             <div id="userIcon" class="fadeIn first">
-                <img style="width: 170px" src="${pageContext.request.contextPath}/resources/image/user_icon.png"
+                <img class="card-img" style="max-width: 20%; height: auto" src="${pageContext.request.contextPath}/resources/image/user_icon.png"
                      alt="User Icon"/>
-                <h3><spring:message code="app.sing.in.message"/></h3>
+                <h5><spring:message code="app.sing.in.message"/></h5>
             </div>
 
             <!-- Logout message -->
@@ -67,7 +67,7 @@
                 </sec:authorize>
             </form:form>
 
-            <div id="formFooter">
+            <div id="formFooter" style="margin-top: -18px">
                 <a href="#" onclick="window.history.back()"><< <spring:message code="app.user.back"/></a>&emsp;&emsp;
                 <a href="registration"><spring:message code="app.sing.up"/> >></a>
             </div>
