@@ -51,7 +51,8 @@ public class RestaurantUtil {
                 vote);
     }
 
-    private static boolean getVoteForAuthUserPerDate(Collection<Vote> votes, int userId, Restaurant restaurant, LocalDate localDate) {
+    private static boolean getVoteForAuthUserPerDate(Collection<Vote> votes, int userId,
+                                                     Restaurant restaurant, LocalDate localDate) {
         return votes.stream().anyMatch(vote -> vote.getVotingDate()
                 .isEqual(localDate) && vote.getUser().getId() == userId && vote.getRestaurant().getId().equals(restaurant.id()));
     }

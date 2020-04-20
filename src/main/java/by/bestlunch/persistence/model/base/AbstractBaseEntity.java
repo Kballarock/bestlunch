@@ -8,7 +8,6 @@ import javax.persistence.*;
 @MappedSuperclass
 @Access(AccessType.FIELD)
 public abstract class AbstractBaseEntity implements HasId {
-    public static final int START_SEQ = 100000;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

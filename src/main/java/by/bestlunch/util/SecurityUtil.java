@@ -11,7 +11,7 @@ public class SecurityUtil {
     private SecurityUtil() {
     }
 
-    public static AuthorizedUser safeGet() {
+    private static AuthorizedUser safeGet() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if (auth == null) {
             return null;

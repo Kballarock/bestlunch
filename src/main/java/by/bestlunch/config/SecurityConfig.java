@@ -46,7 +46,6 @@ public class SecurityConfig extends GlobalMethodSecurityConfiguration {
         return new BCryptPasswordEncoder(11);
     }
 
-
     @Configuration
     public static class FormLoginWebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter {
 

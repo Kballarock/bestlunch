@@ -67,7 +67,7 @@ public abstract class AbstractRestaurantController {
     }
 
     public void update(Restaurant restaurant, int id) {
-        log.info("update {} with id={}", restaurant, id);
+        log.info("update {} with id = {}", restaurant, id);
         assureIdConsistent(restaurant, id);
         restaurantService.update(restaurant);
     }

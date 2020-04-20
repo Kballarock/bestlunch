@@ -64,14 +64,6 @@ public class RestaurantDto extends BaseDto {
         return added.toLocalDate();
     }
 
-    public Integer getAmount() {
-        return amount;
-    }
-
-    public void setAmount(Integer amount) {
-        this.amount = amount;
-    }
-
     public Boolean getVote() {
         return vote;
     }
