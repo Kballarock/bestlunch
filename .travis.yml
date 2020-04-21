@@ -1,0 +1,24 @@
+# https://docs.travis-ci.com/user/languages/java/
+language: java
+jdk: openjdk11
+
+#https://dzone.com/articles/travis-ci-tutorial-java-projects
+cache:
+  directories:
+    - $HOME/.m2
+
+# https://docs.travis-ci.com/user/database-setup#mysql
+before_script:
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS bestlunch;'
+# https://docs.travis-ci.com/user/customizing-the-build#Building-Specific-Branches
+branches:
+  only:
+    - master
+
+# https://stackoverflow.com/a/49852690/548473:
+services:
+  - mysql
+
+# https://docs.travis-ci.com/user/notifications#Configuring-email-notifications
+#notifications:
+#  email: false
