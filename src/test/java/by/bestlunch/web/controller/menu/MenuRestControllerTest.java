@@ -69,7 +69,7 @@ class MenuRestControllerTest extends AbstractControllerTest {
 
     @Test
     void update() throws Exception {
-        Menu updatedItem = MenuTestData.getUpdated();
+        Menu updatedItem = getUpdated();
         perform(doPut(MENU_ITEM5.id()).jsonBody(updatedItem).basicAuth(ADMIN))
                 .andExpect(status().isNoContent());
 

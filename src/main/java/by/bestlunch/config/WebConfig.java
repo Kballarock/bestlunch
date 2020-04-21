@@ -41,10 +41,6 @@ public class WebConfig implements WebMvcConfigurer {
     private static final Integer RESOLVER_JSP_ORDER = 1;
     static final String ENCODING_UTF_8 = "UTF-8";
 
-    public WebConfig() {
-        super();
-    }
-
     @Override
     public void configureViewResolvers(ViewResolverRegistry registry) {
         registry.jsp(RESOLVER_JSP_PREFIX, RESOLVER_JSP_SUFFIX);

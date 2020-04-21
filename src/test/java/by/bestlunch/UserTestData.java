@@ -6,8 +6,6 @@ import by.bestlunch.persistence.model.User;
 import java.time.LocalDate;
 import java.util.Collections;
 
-import static java.time.LocalDate.of;
-
 public class UserTestData {
 
     public static final User ADMIN = new User(100000, "Admin", "admin@admin.com", "admin", Role.ROLE_ADMIN);
