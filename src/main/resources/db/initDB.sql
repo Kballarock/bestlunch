@@ -7,7 +7,7 @@ CREATE TABLE users
   name       VARCHAR(100)            NOT NULL,
   email      VARCHAR(64)             NOT NULL,
   password   VARCHAR(60)             NOT NULL,
-  registered TIMESTAMP DEFAULT now() NOT NULL,
+  registered DATETIME DEFAULT now()  NOT NULL,
   enabled    BOOL      DEFAULT TRUE  NOT NULL
 )
   ENGINE = InnoDB
@@ -43,7 +43,7 @@ CREATE TABLE menu
   id            INTEGER AUTO_INCREMENT PRIMARY KEY,
   name          VARCHAR(255)                                  NOT NULL,
   price         DECIMAL(7, 2)                                 NOT NULL,
-  menu_date     DATE DEFAULT (CURRENT_DATE + INTERVAL 1 YEAR) NOT NULL,
+  menu_date     DATETIME DEFAULT now()                        NOT NULL,
   restaurant_id INTEGER                                       NOT NULL,
   FOREIGN KEY (restaurant_id) REFERENCES restaurant (id) ON DELETE CASCADE
 )
@@ -56,7 +56,7 @@ CREATE TABLE votes
   id            INTEGER AUTO_INCREMENT PRIMARY KEY,
   user_id       INTEGER                                       NOT NULL,
   restaurant_id INTEGER                                       NOT NULL,
-  voting_date   DATE DEFAULT (CURRENT_DATE + INTERVAL 1 YEAR) NOT NULL,
+  voting_date   DATETIME DEFAULT now()                        NOT NULL,
   FOREIGN KEY (restaurant_id) REFERENCES restaurant (id) ON DELETE CASCADE,
   FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
 )

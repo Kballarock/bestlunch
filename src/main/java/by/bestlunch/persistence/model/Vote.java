@@ -23,7 +23,7 @@ public class Vote extends AbstractBaseEntity {
     @NotNull
     private Restaurant restaurant;
 
-    @Column(name = "voting_date", nullable = false, columnDefinition = "date default (current_date + interval 1 year)")
+    @Column(name = "voting_date", nullable = false, columnDefinition = "datetime default now()")
     @NotNull
     @DateTimeFormat(pattern = DateTimeUtil.DATE_PATTERN)
     private LocalDate votingDate;

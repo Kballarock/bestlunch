@@ -40,7 +40,7 @@ public class User extends AbstractNamedEntity implements HasEmail {
 
     @NotNull
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
-    @Column(name = "registered", nullable = false, columnDefinition = "timestamp default now()")
+    @Column(name = "registered", nullable = false, columnDefinition = "datetime default now()")
     @DateTimeFormat(pattern = DateTimeUtil.DATE_PATTERN)
     private LocalDate registered = LocalDate.now();
 

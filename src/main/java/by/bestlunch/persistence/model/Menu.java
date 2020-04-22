@@ -28,7 +28,7 @@ public class Menu extends AbstractBaseEntity {
 
     @NotNull
     @DateTimeFormat(pattern = DateTimeUtil.DATE_PATTERN)
-    @Column(name = "menu_date", nullable = false, columnDefinition = "date default (current_date + interval 1 year)")
+    @Column(name = "menu_date", nullable = false, columnDefinition = "datetime default now()")
     private LocalDate date = LocalDate.now();
 
     @ManyToOne(fetch = FetchType.LAZY)
