@@ -20,5 +20,5 @@ services:
   - mysql
 
 # https://docs.travis-ci.com/user/notifications#Configuring-email-notifications
-#notifications:
-#  email: false
+notifications:
+  email: false
