@@ -22,3 +22,6 @@ services:
 # https://docs.travis-ci.com/user/notifications#Configuring-email-notifications
 notifications:
   email: false
+
+test:
+    encoding: utf8
