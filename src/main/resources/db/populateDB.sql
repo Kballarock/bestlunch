@@ -1,7 +1,3 @@
--- For login use:
--- admin:"admin@admin.com", pass: "admin"
--- user:"user@user.com", pass: "user"
-
 DELETE FROM user_roles WHERE user_id;
 DELETE FROM users WHERE id;
 DELETE FROM menu WHERE restaurant_id;

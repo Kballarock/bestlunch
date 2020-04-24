@@ -29,7 +29,7 @@ class MenuRestControllerTest extends AbstractControllerTest {
     private MenuService menuService;
 
     MenuRestControllerTest() {
-        super("/rest/restaurant/" + RESTAURANT_BURGER_KING.id() + "/menu/item");
+        super("/rest/admin/restaurant/" + RESTAURANT_BURGER_KING.id() + "/menu/items");
     }
 
     @Test

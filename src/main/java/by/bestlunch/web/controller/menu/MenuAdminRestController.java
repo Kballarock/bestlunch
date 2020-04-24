@@ -17,8 +17,8 @@ import java.util.List;
 import static by.bestlunch.util.DateTimeUtil.getCurrentDate;
 
 @RestController
-@RequestMapping(value = "/rest/restaurant/{restaurantId}/menu/item", produces = MediaType.APPLICATION_JSON_VALUE)
-public class MenuRestController extends AbstractMenuController {
+@RequestMapping(value = "/rest/admin/restaurant/{restaurantId}/menu/items", produces = MediaType.APPLICATION_JSON_VALUE)
+public class MenuAdminRestController extends AbstractMenuController {
 
     @Override
     @GetMapping

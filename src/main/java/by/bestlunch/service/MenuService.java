@@ -28,7 +28,6 @@ public class MenuService {
         return checkNotFoundWithId(repository.get(id, restaurantId), id);
     }
 
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public void delete(int id, int restaurantId) {
         checkNotFoundWithId(repository.delete(id, restaurantId), id);
     }
@@ -38,14 +37,12 @@ public class MenuService {
     }
 
     @Transactional
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public void update(Menu item, int restaurantId) {
         Assert.notNull(item, "menu must not be null");
         checkNotFoundWithId(repository.save(item, restaurantId), item.getId());
     }
 
     @Transactional
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public Menu create(Menu item, int restaurantId) {
         Assert.notNull(item, "menu must not be null");
         return repository.save(item, restaurantId);
