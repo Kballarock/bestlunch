@@ -34,7 +34,8 @@ INSERT INTO menu (name, price, menu_date, restaurant_id) VALUES
        ('Паста карбонара', 15.39, '2019-12-17', 100001),
        ('Пицца', 16.23, '2019-12-18', 100001),
        ('Брускетта с помидорами', 7.35, '2019-12-18', 100001),
-       ('Фанта', 2.35, CURDATE(), 100000);
+       ('Фанта', 2.35, CURDATE(), 100000),
+       ('Вино Сопрано', 14.35, CURDATE(), 100001);
 
 
 INSERT INTO votes (id, user_id, restaurant_id, voting_date) VALUES
