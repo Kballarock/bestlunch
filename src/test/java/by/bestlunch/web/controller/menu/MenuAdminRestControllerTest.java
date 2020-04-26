@@ -23,12 +23,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-class MenuRestControllerTest extends AbstractControllerTest {
+class MenuAdminRestControllerTest extends AbstractControllerTest {
 
     @Autowired
     private MenuService menuService;
 
-    MenuRestControllerTest() {
+    MenuAdminRestControllerTest() {
         super("/rest/admin/restaurant/" + RESTAURANT_BURGER_KING.id() + "/menu/items");
     }
 

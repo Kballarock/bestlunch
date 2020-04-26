@@ -45,17 +45,16 @@ public class MenuAdminRestController extends AbstractMenuController {
         Menu created = super.create(item, restaurantId);
 
         URI uriOfNewResource = ServletUriComponentsBuilder.fromCurrentContextPath()
-                .path("/rest/restaurant/{restaurantId}/menu/item")
+                .path("/rest/restaurant/{restaurantId}/menu/items")
                 .buildAndExpand(created.getId()).toUri();
 
         return ResponseEntity.created(uriOfNewResource).body(created);
     }
 
-    @Override
     @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void update(@Validated(ErrorSequence.class) @RequestBody Menu item,
                        @PathVariable("id") int id, @PathVariable("restaurantId") int restaurantId) {
-        super.update(item, item.getId(), restaurantId);
+        super.update(item, id, restaurantId);
     }
 }
