@@ -33,14 +33,14 @@ public abstract class AbstractControllerTest {
 
     private static final CharacterEncodingFilter CHARACTER_ENCODING_FILTER = new CharacterEncodingFilter();
 
+    static {
+        CHARACTER_ENCODING_FILTER.setEncoding("UTF-8");
+        CHARACTER_ENCODING_FILTER.setForceEncoding(true);
+    }
+
     @Configuration
     @ComponentScan({"by.bestlunch"})
-    static class Config {
-        static {
-            CHARACTER_ENCODING_FILTER.setEncoding("UTF-8");
-            CHARACTER_ENCODING_FILTER.setForceEncoding(true);
-        }
-    }
+    static class Config {}
 
     private MockMvc mockMvc;
 
