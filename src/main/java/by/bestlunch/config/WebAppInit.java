@@ -1,13 +1,10 @@
 package by.bestlunch.config;
 
 import org.springframework.web.context.WebApplicationContext;
-import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 import javax.servlet.Filter;
-
-import static by.bestlunch.config.WebConfig.ENCODING_UTF_8;
 
 public class WebAppInit extends AbstractAnnotationConfigDispatcherServletInitializer {
 
@@ -35,9 +32,6 @@ public class WebAppInit extends AbstractAnnotationConfigDispatcherServletInitial
 
     @Override
     protected Filter[] getServletFilters() {
-        CharacterEncodingFilter characterEncodingFilter = new CharacterEncodingFilter();
-        characterEncodingFilter.setEncoding(ENCODING_UTF_8);
-        characterEncodingFilter.setForceEncoding(true);
-        return new Filter[]{characterEncodingFilter};
+        return new Filter[0];
     }
 }

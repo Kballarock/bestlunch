@@ -4,8 +4,14 @@ jdk: openjdk11
 cache:
   directories:
     - $HOME/.m2
+    -
 
-services: mysql
+services:
+  - mysql
 
 before_script:
   - mysql -e 'CREATE DATABASE IF NOT EXISTS bestlunch;'
+
+mysql:
+  database: bestlunch
+  encoding: utf8
