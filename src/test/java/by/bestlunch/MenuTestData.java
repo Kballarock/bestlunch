@@ -10,7 +10,6 @@ import static java.time.LocalDate.of;
 public class MenuTestData {
 
     public static final Menu MENU_ITEM1 = new Menu(100000, "Гамбургер", 4.39, of(2019, 12, 16));
-    public static final Menu MENU_ITEM2 = new Menu(100001, "Кока Кола", 1.2, of(2019, 12, 16));
     public static final Menu MENU_ITEM3 = new Menu(100006, "Паста", 10.60, of(2019, 12, 16));
     public static final Menu MENU_ITEM4 = new Menu(100007, "Сибас", 16.63, of(2019, 12, 16));
     public static final Menu MENU_ITEM5 = new Menu(100012, "Фанта", 2.35, LocalDate.now());
