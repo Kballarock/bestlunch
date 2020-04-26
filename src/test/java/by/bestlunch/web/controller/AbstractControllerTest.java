@@ -36,11 +36,10 @@ public abstract class AbstractControllerTest {
     @Configuration
     @ComponentScan({"by.bestlunch"})
     static class Config {
-    }
-
-    static {
-        CHARACTER_ENCODING_FILTER.setEncoding("UTF-8");
-        CHARACTER_ENCODING_FILTER.setForceEncoding(true);
+        static {
+            CHARACTER_ENCODING_FILTER.setEncoding("UTF-8");
+            CHARACTER_ENCODING_FILTER.setForceEncoding(true);
+        }
     }
 
     private MockMvc mockMvc;
