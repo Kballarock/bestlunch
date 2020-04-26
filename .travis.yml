@@ -7,6 +7,9 @@ cache:
   directories:
     - $HOME/.m2
 
+before_install:
+  - mysql -u root --password = "" < test / travis. SQL
+
 # https://docs.travis-ci.com/user/database-setup#mysql
 before_script:
   - mysql -e 'CREATE DATABASE IF NOT EXISTS bestlunch;'
@@ -18,10 +21,3 @@ branches:
 # https://stackoverflow.com/a/49852690/548473:
 services:
   - mysql
-
-# https://docs.travis-ci.com/user/notifications#Configuring-email-notifications
-notifications:
-  email: false
-
-test:
-    encoding: utf8
