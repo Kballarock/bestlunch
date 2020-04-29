@@ -10,7 +10,7 @@ services:
   - mysql
 
 before_script:
-  - mysql -e 'CREATE DATABASE IF NOT EXISTS bestlunch;'
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS bestlunch CHARACTER SET utf8 COLLATE utf8_general_ci;'
 
 mysql:
   database: bestlunch
