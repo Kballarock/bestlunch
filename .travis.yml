@@ -1,16 +1,15 @@
 language: java
 jdk: openjdk11
+sudo: required
 
 cache:
   directories:
     - $HOME/.m2
-    -
 
 services:
   - mysql
 
 before_script:
-    - mysql -e 'SET NAMES "utf8mb4";'
-    - mysql -e 'CHARSET "utf8mb4";'
-    - mysql -e 'CREATE DATABASE bestlunch CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;'
- # - mysql -e 'CREATE DATABASE IF NOT EXISTS bestlunch DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;'
+  - sudo cp $TRAVIS_BUILD_DIR/mysql.cnf /etc/mysql/conf.d/
+  - sudo service mysql restart
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS bestlunch;'
