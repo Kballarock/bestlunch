@@ -111,7 +111,7 @@
 <script>
     $('#name').bind('keyup blur', function () {
         var node = $(this);
-        node.val(node.val().replace(/[^a-z ]/g, ''));
+        node.val(node.val().replace(/[^a-zA-Zа-яА-Я ]/g, ''));
     });
 </script>
 </html>
