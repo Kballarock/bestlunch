@@ -117,7 +117,7 @@ public class User extends AbstractNamedEntity implements HasEmail {
     public String toString() {
         return "User{" +
                 "id='" + id + '\'' +
-                "email='" + email + '\'' +
+                ", email='" + email + '\'' +
                 ", enabled=" + enabled +
                 ", registered=" + registered +
                 ", roles=" + roles +

@@ -38,7 +38,6 @@ public class Menu extends AbstractBaseEntity {
     private Restaurant restaurant;
 
     public Menu() {
-        super();
     }
 
     public Menu(String name, Double price) {
@@ -92,8 +91,8 @@ public class Menu extends AbstractBaseEntity {
     public String toString() {
         return "Menu{" +
                 "id=" + id +
-                "name=" + name +
-                "price=" + price +
+                ", name=" + name +
+                ", price=" + price +
                 ", date=" + date +
                 ", restaurant=" + restaurant +
                 '}';

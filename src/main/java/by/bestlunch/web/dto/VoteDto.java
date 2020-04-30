@@ -22,7 +22,7 @@ public class VoteDto {
 
     @Override
     public String toString() {
-        return "VoteTo{" +
+        return "VoteDto{" +
                 "vote=" + vote +
                 ", created=" + created +
                 '}';

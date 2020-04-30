@@ -9,7 +9,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.test.context.support.WithMockUser;
 
 import javax.validation.*;
 import java.time.LocalDateTime;
@@ -31,7 +30,6 @@ class RestaurantServiceTest extends AbstractServiceTest {
     }
 
     @Test
-    @WithMockUser(roles = {"ADMIN"})
     void create() {
         Restaurant newRestaurant = getNew();
         Restaurant created = service.create(new Restaurant(newRestaurant));
@@ -54,7 +52,6 @@ class RestaurantServiceTest extends AbstractServiceTest {
     }
 
     @Test
-    @WithMockUser(roles = {"ADMIN"})
     void delete() {
         service.delete(RESTAURANT_RENAISSANCE.getId());
         assertThrows(NotFoundException.class, () ->
@@ -62,7 +59,6 @@ class RestaurantServiceTest extends AbstractServiceTest {
     }
 
     @Test
-    @WithMockUser(roles = {"ADMIN"})
     void deletedNotFound() {
         assertThrows(NotFoundException.class, () ->
                 service.delete(1));
@@ -75,7 +71,6 @@ class RestaurantServiceTest extends AbstractServiceTest {
     }
 
     @Test
-    @WithMockUser(roles = {"ADMIN"})
     void update() {
         Restaurant updated = getUpdated();
         service.update(new Restaurant(updated));
@@ -83,13 +78,11 @@ class RestaurantServiceTest extends AbstractServiceTest {
     }
 
     @Test
-    @WithMockUser(roles = {"ADMIN"})
     void createWithEmptyRestaurantName() {
         validateRootCause(() -> service.create(new Restaurant(null, "  ", "NewKitchen", "NewAddress", LocalDateTime.now())), ConstraintViolationException.class);
     }
 
     @Test
-    @WithMockUser(roles = {"ADMIN"})
     void createWithEmptyRestaurantDescription() {
         Restaurant restaurant = service.create(new Restaurant(null, "NewRestaurant", "  ", "NewAddress", LocalDateTime.now()));
 
@@ -100,7 +93,6 @@ class RestaurantServiceTest extends AbstractServiceTest {
     }
 
     @Test
-    @WithMockUser(roles = {"ADMIN"})
     void createWithMinSizeRestaurantDescription() {
         Restaurant restaurant = service.create(new Restaurant(null, "NewRestaurant", "q", "NewAddress", LocalDateTime.now()));
 
@@ -111,7 +103,6 @@ class RestaurantServiceTest extends AbstractServiceTest {
     }
 
     @Test
-    @WithMockUser(roles = {"ADMIN"})
     void createWithMaxSizeRestaurantDescription() {
         Restaurant restaurant = service.create(new Restaurant(null, "NewRestaurant", "NewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNew", "NewAddress", LocalDateTime.now()));
 
@@ -122,7 +113,6 @@ class RestaurantServiceTest extends AbstractServiceTest {
     }
 
     @Test
-    @WithMockUser(roles = {"ADMIN"})
     void createWithEmptyRestaurantAddress() {
         Restaurant restaurant = service.create(new Restaurant(null, "NewRestaurant", "NewKitchen", "  ", LocalDateTime.now()));
 
@@ -133,7 +123,6 @@ class RestaurantServiceTest extends AbstractServiceTest {
     }
 
     @Test
-    @WithMockUser(roles = {"ADMIN"})
     void createWithMinSizeRestaurantAddress() {
         Restaurant restaurant = service.create(new Restaurant(null, "NewRestaurant", "NewKitchen", "q", LocalDateTime.now()));
 
@@ -144,7 +133,6 @@ class RestaurantServiceTest extends AbstractServiceTest {
     }
 
     @Test
-    @WithMockUser(roles = {"ADMIN"})
     void createWithMaxSizeRestaurantAddress() {
         Restaurant restaurant = service.create(new Restaurant(null, "NewRestaurant", "NewKitchen", "NewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNewNew", LocalDateTime.now()));
 

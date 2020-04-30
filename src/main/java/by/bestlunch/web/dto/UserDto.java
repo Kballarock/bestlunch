@@ -82,7 +82,7 @@ public class UserDto extends BaseDto implements HasEmail, Serializable {
     public String toString() {
         return "UserDto{" +
                 "id=" + id +
-                "name='" + name + '\'' +
+                ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 '}';
     }

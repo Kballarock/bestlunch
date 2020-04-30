@@ -94,7 +94,7 @@ public class RestaurantDto extends BaseDto {
     public String toString() {
         return "RestaurantDto{" +
                 "id='" + id + '\'' +
-                "name='" + name + '\'' +
+                ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", address='" + address + '\'' +
                 ", amount=" + amount +
