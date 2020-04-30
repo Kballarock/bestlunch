@@ -4,7 +4,7 @@ Full-featured Spring / JPA Enterprise application with registration / authorizat
 the most popular Java tools and technologies: Maven, Spring MVC, Security, JPA(Hibernate), REST(Jackson), 
 Bootstrap (css,js), datatables, jQuery + plugins, Java 8 Stream and Time API, MySQL.
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/585ec2e51214494092adba54d0307db4)](https://www.codacy.com/manual/Kballarock/bestlunch?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Kballarock/bestlunch&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/585ec2e51214494092adba54d0307db4)](https://www.codacy.com/manual/Kballarock/bestlunch?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Kballarock/bestlunch&amp;utm_campaign=Badge_Grade) [![Build Status](https://travis-ci.org/Kballarock/bestlunch.svg?branch=master)](https://travis-ci.org/Kballarock/bestlunch)
 
 Specifications
 -------------------------------
