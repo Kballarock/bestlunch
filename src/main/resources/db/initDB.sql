@@ -1,5 +1,9 @@
 CREATE SCHEMA IF NOT EXISTS bestlunch CHARACTER SET utf8;
-DROP TABLE IF EXISTS user_roles, users, restaurant, menu, votes;
+DROP TABLE IF EXISTS votes;
+DROP TABLE IF EXISTS menu;
+DROP TABLE IF EXISTS restaurant;
+DROP TABLE IF EXISTS user_roles;
+DROP TABLE IF EXISTS users;
 
 CREATE TABLE users
 (
