@@ -12,5 +12,4 @@ services:
 before_script:
   - sudo cp $TRAVIS_BUILD_DIR/mysql.cnf /etc/mysql/conf.d/
   - sudo service mysql restart
-  - mysql -e 'SET GLOBAL time_zone = Europe/Minsk;'
   - mysql -e 'CREATE DATABASE IF NOT EXISTS bestlunch;'
