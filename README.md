@@ -71,7 +71,8 @@ Basic authentication
 
 CURL
 -------------------------------
-###Users handling
+#### Users handling:
+
 1.Get user
 ```
 curl 'http://localhost:8080/bestlunch/rest/admin/users/100001' -i -H 'Authorization:Basic YWRtaW5AYWRtaW4uY29tOmFkbWlu'
@@ -92,7 +93,8 @@ curl 'http://localhost:8080/bestlunch/rest/admin/users/100001' -i -X PUT -d '{"n
 ```
 curl 'http://localhost:8080/bestlunch/rest/admin/users/100001' -i -X DELETE -H'Authorization: Basic YWRtaW5AYWRtaW4uY29tOmFkbWlu' -H 'Content-Type: application/json'
 ```
-####Restaurant handling
+#### Restaurant handling
+
 1.Get restaurant
 ```
 curl 'http://localhost:8080/bestlunch/rest/restaurant/100000' -i -H 'Authorization:Basic dXNlckB1c2VyLmNvbTp1c2Vy'
@@ -120,7 +122,8 @@ curl 'http://localhost:8080/bestlunch/rest/admin/100001' -i -X PUT -d '{"name": 
 ```
 curl 'http://localhost:8080/bestlunch/rest/admin/100001' -i -X DELETE -H'Authorization: Basic YWRtaW5AYWRtaW4uY29tOmFkbWlu' -H 'Content-Type: application/json'
 ```
-####Menu handling
+#### Menu handling
+
 1.Get menu item
 ```
 curl 'http://localhost:8080/bestlunch/rest/admin/restaurant/100000/menu/items/100000' -i -H 'Authorization:Basic YWRtaW5AYWRtaW4uY29tOmFkbWlu'
@@ -143,7 +146,8 @@ curl 'http://localhost:8080/bestlunch/rest/admin/restaurant/100000/menu/items/10
 ```
 curl 'http://localhost:8080/bestlunch/rest/admin/restaurant/100000/menu/items/100003' -i -X DELETE -H'Authorization: Basic YWRtaW5AYWRtaW4uY29tOmFkbWlu' -H 'Content-Type: application/json'
 ```
-####Vote handling
+#### Vote handling
+
 1.Create user vote
 ```
 curl 'http://localhost:8080/bestlunch/rest/restaurant/100000/vote' -i -X POST -H 'Authorization: Basic dXNlckB1c2VyLmNvbTp1c2Vy' -H 'Content-Type: application/json'
